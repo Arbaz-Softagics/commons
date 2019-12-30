@@ -1,4 +1,8 @@
-## [0.2.7] - Shared Preferences added
+## [0.2.9] - Minor Changes
+
+* Minor changes
+
+## [0.2.8] - Shared Preferences added
 
 * Shared preferences added with Prefs class
 
