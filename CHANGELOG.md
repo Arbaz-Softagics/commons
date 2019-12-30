@@ -1,3 +1,11 @@
+## [0.2.7] - Minor changes
+
+* Minor changes
+
+## [0.2.6] - Add to git
+
+* nothing special
+
 ## [0.2.5] - Added string extension functions
 
 * String extensions function added (capitalize, titleCase)
