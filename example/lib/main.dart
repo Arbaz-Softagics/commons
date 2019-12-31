@@ -132,48 +132,51 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                try {
+                tryCatch(context, this, () {
                   throw Exception("throw exception manully...");
-                } on Exception catch (e, s) {
-                  push(
-                    context,
-                    StackTraceScreen(
-                      className: runtimeType.toString(),
-                      stackTrace: "$s",
-                      errorMessage: "$e",
-                      mailTo: "arbaz.mateen@softagics.com",
-                      shareButton: true,
-                      deviceInfo: true,
-                      subject: "Stack Trace",
-                    ),
-                  );
-                } on Error catch (e, s) {
-                  push(
-                    context,
-                    StackTraceScreen(
-                      className: runtimeType.toString(),
-                      stackTrace: "$s",
-                      errorMessage: "$e",
-                      mailTo: "arbaz.mateen@softagics.com",
-                      shareButton: true,
-                      deviceInfo: true,
-                      subject: "Stack Trace",
-                    ),
-                  );
-                } catch (e, s) {
-                  push(
-                    context,
-                    StackTraceScreen(
-                      className: runtimeType.toString(),
-                      stackTrace: "$s",
-                      errorMessage: "$e",
-                      mailTo: "arbaz.mateen@softagics.com",
-                      shareButton: true,
-                      deviceInfo: true,
-                      subject: "Stack Trace",
-                    ),
-                  );
-                }
+                });
+//                try {
+//                  throw Exception("throw exception manully...");
+//                } on Exception catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } on Error catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                }
               },
               title: Text("Stack Trace Dialog"),
             ),
@@ -215,6 +218,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               title: Text("Loading Screen"),
+            ),
+            ListTile(
+              onTap: () {
+                getPackageInfo().then((info) {
+                  infoDialog(context, info, textAlign: TextAlign.start);
+                });
+              },
+              title: Text("Package Info Dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                getDeviceInfo().then((info) {
+                  infoDialog(context, info, textAlign: TextAlign.start);
+                });
+              },
+              title: Text("Device Info Dialog"),
             ),
           ],
         ),

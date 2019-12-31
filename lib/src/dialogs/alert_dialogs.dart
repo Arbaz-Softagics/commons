@@ -20,6 +20,7 @@ class AlertDialog extends StatefulWidget {
   final bool showNeutralButton;
   final int icon;
   final bool confirm;
+  final TextAlign textAlign;
 
   AlertDialog({
     @required this.color,
@@ -34,6 +35,7 @@ class AlertDialog extends StatefulWidget {
     this.negativeAction,
     this.icon,
     this.confirm,
+    this.textAlign,
   });
 
   @override
@@ -206,7 +208,7 @@ class _AlertDialogState extends State<AlertDialog> {
                 child: SingleChildScrollView(
                   child: Text(
                     widget.message,
-                    textAlign: TextAlign.center,
+                    textAlign: widget.textAlign == null ? TextAlign.center : widget.textAlign,
                     style: TextStyle(
                       fontSize: 16.0,
                     ),
@@ -279,6 +281,7 @@ dialog(
   Function negativeAction,
   icon = 0,
   confirm = false,
+  textAlign: TextAlign.center,
 }) {
   return showDialog(
     barrierDismissible: closeOnBackPress,
@@ -298,6 +301,7 @@ dialog(
         negativeAction: negativeAction,
         icon: icon,
         confirm: confirm,
+        textAlign: textAlign,
       ),
     ),
   );
@@ -316,6 +320,7 @@ successDialog(
   title = "Success",
   closeOnBackPress = true,
   icon = AlertDialog.SUCCESS_ICON,
+  textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
@@ -331,6 +336,7 @@ successDialog(
     negativeText: negativeText,
     negativeAction: negativeAction,
     icon: icon,
+    textAlign: textAlign,
   );
 }
 
@@ -347,6 +353,7 @@ errorDialog(
   title = "Error",
   closeOnBackPress = false,
   icon = AlertDialog.ERROR_ICON,
+  textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
@@ -362,6 +369,7 @@ errorDialog(
     negativeText: negativeText,
     negativeAction: negativeAction,
     icon: icon,
+    textAlign: textAlign,
   );
 }
 
@@ -378,6 +386,7 @@ warningDialog(
   title = "Warning",
   closeOnBackPress = false,
   icon = AlertDialog.WARNING_ICON,
+  textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
@@ -393,6 +402,7 @@ warningDialog(
     negativeText: negativeText,
     negativeAction: negativeAction,
     icon: icon,
+    textAlign: textAlign,
   );
 }
 
@@ -409,6 +419,7 @@ infoDialog(
   title = "Info",
   closeOnBackPress = false,
   icon = AlertDialog.INFO_ICON,
+  textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
@@ -424,6 +435,7 @@ infoDialog(
     negativeText: negativeText,
     negativeAction: negativeAction,
     icon: icon,
+    textAlign: textAlign,
   );
 }
 
@@ -441,6 +453,7 @@ confirmationDialog(
   closeOnBackPress = false,
   icon = AlertDialog.HELP_ICON,
   confirm: true,
+  textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
@@ -457,6 +470,7 @@ confirmationDialog(
     negativeAction: negativeAction,
     icon: icon,
     confirm: confirm,
+    textAlign: textAlign,
   );
 }
 

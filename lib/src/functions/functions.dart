@@ -1,9 +1,77 @@
+import 'dart:io';
+
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 
 delay(Duration duration, Function fun) {
   Future.delayed(duration, () {
     fun();
   });
+}
+
+Future<String> getPackageInfo() async {
+  String _info = "";
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+  _info = "App Name: ${packageInfo.appName}\n";
+  _info += "Package Name: ${packageInfo.packageName}\n";
+  _info += "Version: ${packageInfo.version}\n";
+  _info += "Build Number: ${packageInfo.buildNumber}";
+  
+  return _info;
+}
+
+Future<String> getDeviceInfo() async {
+  String _info = "";
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  if (Platform.isAndroid) {
+    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+    _info += "ANDROID DEVICE INFO\n";
+    _info += "AndroidId: ${androidInfo.androidId}\n";
+    _info += "Board: ${androidInfo.board}\n";
+    _info += "Bootloader: ${androidInfo.bootloader}\n";
+    _info += "Brand: ${androidInfo.brand}\n";
+    _info += "Device: ${androidInfo.device}\n";
+    _info += "Display: ${androidInfo.display}\n";
+    _info += "Fingerprint: ${androidInfo.fingerprint}\n";
+    _info += "Hardware: ${androidInfo.hardware}\n";
+    _info += "Host: ${androidInfo.host}\n";
+    _info += "ID: ${androidInfo.id}\n";
+    _info += "IsPhysicalDevice: ${androidInfo.isPhysicalDevice}\n";
+    _info += "Manufacturer: ${androidInfo.manufacturer}\n";
+    _info += "Model: ${androidInfo.model}\n";
+    _info += "Product: ${androidInfo.product}\n";
+    _info += "Supported32BitAbis: ${androidInfo.supported32BitAbis}\n";
+    _info += "Supported64BitAbis: ${androidInfo.supported64BitAbis}\n";
+    _info += "SupportedAbis: ${androidInfo.supportedAbis}\n";
+    _info += "Tags: ${androidInfo.tags}\n";
+    _info += "Type: ${androidInfo.type}\n\n";
+    _info += "VERSION\n";
+    _info += "Android OS: ${androidInfo.version.baseOS}\n";
+    _info += "Code Name: ${androidInfo.version.codename}\n";
+    _info += "Incremental: ${androidInfo.version.incremental}\n";
+    _info += "Preview Sdk Int: ${androidInfo.version.previewSdkInt}\n";
+    _info += "SDK Int: ${androidInfo.version.sdkInt}\n";
+    _info += "Release: ${androidInfo.version.release}\n";
+    _info += "Security Path: ${androidInfo.version.securityPatch}\n";
+  } else {
+    IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+    _info += "APPLE DEVICE INFO\n";
+    _info += "IdentifierForVendor: ${iosInfo.identifierForVendor}\n";
+    _info += "IsPhysicalDevice: ${iosInfo.isPhysicalDevice}\n";
+    _info += "LocalizedModel: ${iosInfo.localizedModel}\n";
+    _info += "Model: ${iosInfo.model}\n";
+    _info += "Name: ${iosInfo.name}\n";
+    _info += "SystemName: ${iosInfo.systemName}\n";
+    _info += "SystemVersion: ${iosInfo.systemVersion}\n";
+    _info += "Utsname.Machine: ${iosInfo.utsname.machine}\n";
+    _info += "Utsname.Nodename: ${iosInfo.utsname.nodename}\n";
+    _info += "Utsname.Release: ${iosInfo.utsname.release}\n";
+    _info += "Utsname.Sysname: ${iosInfo.utsname.sysname}\n";
+    _info += "Utsname.Version: ${iosInfo.utsname.version}\n";
+  }
+  return _info;
 }
 
 Widget highlightTitleTextWidget(

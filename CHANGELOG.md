@@ -1,3 +1,13 @@
+## [0.3.2] - Functions
+
+* Functions added
+* getPackageInfo()
+* getDeviceInfo()
+
+## [0.3.1] - Widget Screen
+
+* Widget Screen added
+
 ## [0.3.0] - Ok Toast functions
 
 * Package OkToast added with functions
