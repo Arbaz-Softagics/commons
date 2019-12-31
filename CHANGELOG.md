@@ -1,3 +1,8 @@
+## [0.3.0] - Ok Toast functions
+
+* Package OkToast added with functions
+* Check OkToast requirements here https://pub.dev/packages/oktoast
+
 ## [0.2.9] - Minor Changes
 
 * Minor changes

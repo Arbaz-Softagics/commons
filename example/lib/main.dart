@@ -7,21 +7,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Commons Example',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.teal,
+    return OKToast(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Commons Example',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.teal,
+          primaryColorDark: Colors.teal[900],
+          accentColor: Colors.pink[600],
+        ),
+        home: MyHomePage(title: 'Commons Example'),
       ),
-      home: MyHomePage(title: 'Commons Example'),
     );
   }
 }
@@ -86,7 +91,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                errorDialog(context, "Error demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogErroialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogErroialogError demo dialogError demo dialogError demo dialogError demo dialoError demo dialogError demo dialogErroialogError demo dialogError demo dialogError demo dialogError demo dialoError demo dialogError demo dialogErroialogError demo dialogError demo dialogError demo dialogError demo dialoError demo dialogError demo dialogErroialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialogError demo dialog", negativeText: "Try Again", negativeAction: () {}, positiveText: "Details", positiveAction: () {});
+                errorDialog(
+                  context,
+                  "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in " +
+                      "Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de " +
+                      "Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32." +
+                      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from "
+                          "the 1914 translation by H. Rackham.",
+                  negativeText: "Try Again",
+                  negativeAction: () {},
+                  positiveText: "Details",
+                  positiveAction: () {},
+                );
               },
               title: Text("Error Dialog"),
             ),
@@ -126,6 +142,22 @@ class _MyHomePageState extends State<MyHomePage> {
                       stackTrace: "$s",
                       errorMessage: "$e",
                       mailTo: "arbaz.mateen@softagics.com",
+                      shareButton: true,
+                      deviceInfo: true,
+                      subject: "Stack Trace",
+                    ),
+                  );
+                } on Error catch (e, s) {
+                  push(
+                    context,
+                    StackTraceScreen(
+                      className: runtimeType.toString(),
+                      stackTrace: "$s",
+                      errorMessage: "$e",
+                      mailTo: "arbaz.mateen@softagics.com",
+                      shareButton: true,
+                      deviceInfo: true,
+                      subject: "Stack Trace",
                     ),
                   );
                 } catch (e, s) {
@@ -136,11 +168,53 @@ class _MyHomePageState extends State<MyHomePage> {
                       stackTrace: "$s",
                       errorMessage: "$e",
                       mailTo: "arbaz.mateen@softagics.com",
+                      shareButton: true,
+                      deviceInfo: true,
+                      subject: "Stack Trace",
                     ),
                   );
                 }
               },
               title: Text("Stack Trace Dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                successToast("Success toast");
+              },
+              title: Text("Success toast"),
+            ),
+            ListTile(
+              onTap: () {
+                errorToast("Error toast");
+              },
+              title: Text("Error toast"),
+            ),
+            ListTile(
+              onTap: () {
+                warningToast("Warning toast");
+              },
+              title: Text("Warning toast"),
+            ),
+            ListTile(
+              onTap: () {
+                infoToast("Info toast");
+              },
+              title: Text("Info toast"),
+            ),
+            ListTile(
+              onTap: () {
+                push(
+                  context,
+                  loadingScreen(
+                    context,
+                    duration: Duration(
+                      seconds: 5,
+                    ),
+                    loadingType: LoadingType.JUMPING,
+                  ),
+                );
+              },
+              title: Text("Loading Screen"),
             ),
           ],
         ),
