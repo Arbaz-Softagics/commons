@@ -17,7 +17,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 ### 1. Depend on it
 
 Add this to your package's pubspec.yaml file:
-```
+```yaml
 dependencies:  
    commons: ^0.3.5
 ```
@@ -35,7 +35,7 @@ Alternatively, your editor might support  `flutter pub get`. Check the docs for 
 ### 3. Import it
 
 Now in your Dart code, you can use:
-```
+```dart
 import  'package:commons/commons.dart';
 ```
 
@@ -62,7 +62,7 @@ import  'package:commons/commons.dart';
 
 ### Success Dialog
 
-```
+```dart
 successDialog(  
 	context,  
 	"Success message",  
@@ -75,7 +75,7 @@ successDialog(
 
 ### Confirm Dialog
 
-```
+```dart
 confirmationDialog(
 	context, 
 	"Confirm demo dialog", 
@@ -101,7 +101,7 @@ confirmationDialog(
 ## How to use
 
 Commons used [OKToast](https://pub.dev/packages/oktoast) dart package please check [OKToast](https://pub.dev/packages/oktoast) requirements first.
-```
+```dart
 successToast("Success toast");
 ```
 
@@ -111,7 +111,7 @@ successToast("Success toast");
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/loading.png" width="240">
 </p>
 
-```
+```dart
 loadingScreen(  
 	context,  
 	duration: Duration(  
