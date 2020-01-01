@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 print("addMonth: ${DateTimeAPI.addMonth(DateTime.now(), 1)}");
                 print("subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
                 print("difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
-                
+
                 print("Numbers");
                 int i = 123456;
                 double a = 123456.566;
