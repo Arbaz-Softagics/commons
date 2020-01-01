@@ -1,3 +1,7 @@
+## [0.3.5] - Example Added
+
+* Complete example added
+
 ## [0.3.4] - Bug Fixed
 
 * Minor bug fixed
