@@ -18,8 +18,10 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 
 Add this to your package's pubspec.yaml file:
 ```yaml
-dependencies:  
-   commons: ^0.3.6
+
+    dependencies:  
+      commons: ^0.3.7
+   
 ```
 
 ### 2. Install it
@@ -28,7 +30,9 @@ You can install packages from the command line:
 
 with Flutter:
 ```sh
-$ flutter pub get
+
+    $ flutter pub get
+    
 ```
 Alternatively, your editor might support  `flutter pub get`. Check the docs for your editor to learn more.
 
@@ -36,7 +40,9 @@ Alternatively, your editor might support  `flutter pub get`. Check the docs for 
 
 Now in your Dart code, you can use:
 ```dart
-import  'package:commons/commons.dart';
+
+    import  'package:commons/commons.dart';
+
 ```
 
 ## Dialogs
@@ -63,25 +69,29 @@ import  'package:commons/commons.dart';
 ### Success Dialog
 
 ```dart
-successDialog(  
-	context,  
-	"Success message",  
-	negativeText: "Try Again",  
-	negativeAction: () {},  
-	positiveText: "Details",  
-	positiveAction: () {},  
-);
+
+    successDialog(  
+        context,  
+        "Success message",  
+        negativeText: "Try Again",  
+        negativeAction: () {},  
+        positiveText: "Details",  
+        positiveAction: () {},  
+    );
+
 ```
 
 ### Confirm Dialog
 
 ```dart
-confirmationDialog(
-	context, 
-	"Confirm demo dialog", 
-	positiveText: "Delete", 
-	positiveAction: () {}
-);
+
+    confirmationDialog(
+        context, 
+        "Confirm demo dialog", 
+        positiveText: "Delete", 
+        positiveAction: () {}
+    );
+
 ```
 
 ## Toasts
@@ -102,7 +112,9 @@ confirmationDialog(
 
 Commons used [OKToast](https://pub.dev/packages/oktoast) dart package please check [OKToast](https://pub.dev/packages/oktoast) requirements first.
 ```dart
-successToast("Success toast");
+
+    successToast("Success toast");
+
 ```
 
 # Loading screen
@@ -112,13 +124,15 @@ successToast("Success toast");
 </p>
 
 ```dart
-loadingScreen(  
-	context,  
-	duration: Duration(  
-		seconds: 5,  
-	),  
-	loadingType: LoadingType.JUMPING,
-),
+    
+    loadingScreen(  
+        context,  
+        duration: Duration(  
+            seconds: 5,  
+        ),  
+        loadingType: LoadingType.JUMPING,
+    ),
+    
 ```
 
 # Documentation
