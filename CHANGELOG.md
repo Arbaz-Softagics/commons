@@ -1,3 +1,12 @@
+## [0.3.3] - Extension Functions
+
+* Added
+* DateTime
+* integer
+* double
+* formats
+* DateTimeAPI
+
 ## [0.3.2] - Functions
 
 * Functions added

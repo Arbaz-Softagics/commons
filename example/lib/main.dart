@@ -85,6 +85,39 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ListTile(
               onTap: () {
+                var now = DateTime.now();
+                print("${now.format()}");
+                print("${now.toDateString()}");
+                print("${now.toTimeString()}");
+                print("${now.toDateTimeString()}");
+                print("${now.toDateTimeWithMillisecondsString()}");
+                print("sqlDateFormat: ${DateTimeAPI.sqlDateFormat(DateTime.now())}");
+                print("sqlDateTimeFormat: ${DateTimeAPI.sqlDateTimeFormat(DateTime.now())}");
+                print("sqlStartDateTimeFormat: ${DateTimeAPI.sqlStartDateTimeFormat(DateTime.now())}");
+                print("sqlEndDateTimeFormat: ${DateTimeAPI.sqlEndDateTimeFormat(DateTime.now())}");
+                print("formatDateOnly: ${DateTimeAPI.formatDateOnly(DateTime.now())}");
+                print("formatTimeOnly: ${DateTimeAPI.formatTimeOnly(DateTime.now())}");
+                print("formatDateTime: ${DateTimeAPI.formatDateTime(DateTime.now())}");
+                print("lastDateOfMonth: ${DateTimeAPI.lastDateOfMonth()}");
+                print("firstDateOfMonth: ${DateTimeAPI.firstDateOfMonth()}");
+                print("add: ${DateTimeAPI.add(DateTime.now(), Duration(days: 5))}");
+                print("subtract: ${DateTimeAPI.subtract(DateTime.now(), Duration(days: 5))}");
+                print("addDay: ${DateTimeAPI.addDay(DateTime.now(), 5)}");
+                print("subtractDay: ${DateTimeAPI.subtractDay(DateTime.now(), 5)}");
+                print("addMonth: ${DateTimeAPI.addMonth(DateTime.now(), 1)}");
+                print("subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
+                print("difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
+                
+                print("Numbers");
+                int i = 123456;
+                double a = 123456.566;
+                print(i.format());
+                print(a.format());
+              },
+              title: Text("DateTime Test (see the log)"),
+            ),
+            ListTile(
+              onTap: () {
                 successDialog(context, "Success demo dialog");
               },
               title: Text("Success Dialog"),
