@@ -18,7 +18,7 @@ Future<String> getPackageInfo() async {
   _info += "Package Name: ${packageInfo.packageName}\n";
   _info += "Version: ${packageInfo.version}\n";
   _info += "Build Number: ${packageInfo.buildNumber}";
-  
+
   return _info;
 }
 
@@ -86,7 +86,11 @@ Widget highlightTitleTextWidget(
   }
 
   if (wordStyle == null) {
-    wordStyle = const TextStyle(color: Colors.pink, fontSize: 16, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic);
+    wordStyle = const TextStyle(
+        color: Colors.pink,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic);
   }
 
   if (word == null || word.isEmpty) {
@@ -118,7 +122,11 @@ Widget highlightSubTitleTextWidget(
   }
 
   if (wordStyle == null) {
-    wordStyle = const TextStyle(color: Colors.pink, fontSize: 16, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic);
+    wordStyle = const TextStyle(
+        color: Colors.pink,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic);
   }
 
   if (word == null || word.isEmpty) {
@@ -154,16 +162,20 @@ List<TextSpan> _getSpans(String text, String matchWord, TextStyle style) {
 
     do {
       // look for the next match
-      var startIndex = text.toLowerCase().indexOf(values[0].toLowerCase(), spanBoundary);
+      var startIndex =
+          text.toLowerCase().indexOf(values[0].toLowerCase(), spanBoundary);
 
       // if no more matches then add the rest of the string without style
       if (startIndex == -1) {
-        startIndex = text.toLowerCase().indexOf(values[1].toLowerCase(), spanBoundary);
+        startIndex =
+            text.toLowerCase().indexOf(values[1].toLowerCase(), spanBoundary);
         currentIndex = 1;
 
         if (startIndex == -1) {
           if (length > 2) {
-            startIndex = text.toLowerCase().indexOf(values[2].toLowerCase(), spanBoundary);
+            startIndex = text
+                .toLowerCase()
+                .indexOf(values[2].toLowerCase(), spanBoundary);
             currentIndex = 2;
 
             if (startIndex == -1) {
@@ -195,7 +207,8 @@ List<TextSpan> _getSpans(String text, String matchWord, TextStyle style) {
   } else {
     do {
       // look for the next match
-      final startIndex = text.toLowerCase().indexOf(matchWord.toLowerCase(), spanBoundary);
+      final startIndex =
+          text.toLowerCase().indexOf(matchWord.toLowerCase(), spanBoundary);
 
       // if no more matches then add the rest of the string without style
       if (startIndex == -1) {

@@ -6,7 +6,8 @@ class WidgetViewScreen extends StatelessWidget {
   final List<Widget> appBarActions;
   final bool centerTitle;
 
-  WidgetViewScreen(this.title, this.child, {this.centerTitle = false, this.appBarActions});
+  WidgetViewScreen(this.title, this.child,
+      {this.centerTitle = false, this.appBarActions});
 
   @override
   Widget build(BuildContext context) {

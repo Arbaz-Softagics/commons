@@ -1,3 +1,7 @@
+## [0.3.4] - Bug Fixed
+
+* Minor bug fixed
+
 ## [0.3.3] - Extension Functions
 
 * Added

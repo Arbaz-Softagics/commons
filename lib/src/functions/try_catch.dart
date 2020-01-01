@@ -8,7 +8,8 @@ tryCatch(BuildContext context, State state, Function action) {
     action();
   } on FormatException catch (e, s) {
     print("CLASS: ${state.runtimeType}");
-    print("FORMATEXCEPTION: E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}");
+    print(
+        "FORMATEXCEPTION: E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}");
     print("STACK TRACE: $s");
 
     errorDialog(
@@ -21,7 +22,8 @@ tryCatch(BuildContext context, State state, Function action) {
           context,
           StackTraceScreen(
             stackTrace: "$s",
-            errorMessage: "E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}",
+            errorMessage:
+                "E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}",
           ),
         );
       },

@@ -17,7 +17,14 @@ class StackTraceScreen extends StatefulWidget {
   final bool deviceInfo;
   final bool shareButton;
 
-  StackTraceScreen({this.stackTrace, this.errorMessage, this.className, this.mailTo, this.subject, this.deviceInfo, this.shareButton});
+  StackTraceScreen(
+      {this.stackTrace,
+      this.errorMessage,
+      this.className,
+      this.mailTo,
+      this.subject,
+      this.deviceInfo,
+      this.shareButton});
 
   @override
   _StackTraceScreenState createState() => _StackTraceScreenState();
@@ -109,7 +116,8 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
   }
 
   _mailTo() async {
-    String url = "mailto:${widget.mailTo}?subject=${widget.subject ?? "Stack Trace"}&body=$_body";
+    String url =
+        "mailto:${widget.mailTo}?subject=${widget.subject ?? "Stack Trace"}&body=$_body";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -180,6 +188,7 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
         _info += "Utsname.Version: ${iosInfo.utsname.version}\n";
       });
     }
-    _body = "Stack Trace: ${widget.stackTrace}\nError Message: ${widget.errorMessage}\nDevice Info: $_info";
+    _body =
+        "Stack Trace: ${widget.stackTrace}\nError Message: ${widget.errorMessage}\nDevice Info: $_info";
   }
 }

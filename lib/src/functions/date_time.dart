@@ -19,10 +19,13 @@ class DateFormats {
   static const EEE_DD_MMMM_YYYY = "EEE, dd MMMM yyyy"; // WED, 04 July 2017
 
   static const SQL_DATE_FORMAT = "yyyy-MM-dd"; // 2017-07-17
-  static const SQL_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss"; // 2017-07-17 16:05:30
+  static const SQL_DATE_TIME_FORMAT =
+      "yyyy-MM-dd HH:mm:ss"; // 2017-07-17 16:05:30
 
-  static const SQL_START_DATE_FORMAT = "yyyy-MM-dd 00:00:00"; // 2017-07-17 16:05:30
-  static const SQL_END_DATE_FORMAT = "yyyy-MM-dd 23:59:59"; // 2017-07-17 16:05:30
+  static const SQL_START_DATE_FORMAT =
+      "yyyy-MM-dd 00:00:00"; // 2017-07-17 16:05:30
+  static const SQL_END_DATE_FORMAT =
+      "yyyy-MM-dd 23:59:59"; // 2017-07-17 16:05:30
 }
 
 class TimeFormats {
@@ -40,25 +43,33 @@ class DateTimeAPI {
   }
 
   static String sqlDateTimeFormat(DateTime dateTime) {
-    return formatDate(dateTime, [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn, ':', ss]);
+    return formatDate(
+        dateTime, [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn, ':', ss]);
   }
 
   static String sqlStartDateTimeFormat(DateTime dateTime) {
-    return formatDate(dateTime, [yyyy, '-', mm, '-', dd, ' ', '00', ':', '00', ':', '00']);
+    return formatDate(
+        dateTime, [yyyy, '-', mm, '-', dd, ' ', '00', ':', '00', ':', '00']);
   }
 
   static String sqlEndDateTimeFormat(DateTime dateTime) {
-    return formatDate(dateTime, [yyyy, '-', mm, '-', dd, ' ', '23', ':', '59', ':', '59']);
+    return formatDate(
+        dateTime, [yyyy, '-', mm, '-', dd, ' ', '23', ':', '59', ':', '59']);
   }
 
-  static String format(DateTime dateTime, {String stringFormat, List<String> listFormat,}) {
+  static String format(
+    DateTime dateTime, {
+    String stringFormat,
+    List<String> listFormat,
+  }) {
     if (stringFormat != null) {
       return formatFromString(dateTime, stringFormat);
     }
     if (stringFormat != null) {
       return formatDate(dateTime, listFormat);
     }
-    assert(false, "One of format parameters (stringFormat, listFormat) is required to format");
+    assert(false,
+        "One of format parameters (stringFormat, listFormat) is required to format");
     return "00-00-00";
   }
 
@@ -74,7 +85,8 @@ class DateTimeAPI {
     return formatDate(dateTime, [dd, separator, mm, separator, yyyy]);
   }
 
-  static String formatTimeOnly(DateTime dateTime, {separator: ':', milliseconds: false}) {
+  static String formatTimeOnly(DateTime dateTime,
+      {separator: ':', milliseconds: false}) {
     List<String> format = [hh, separator, nn, separator, ss, ' ', am];
     if (milliseconds) {
       format = [hh, separator, nn, separator, ss, ',', SSS, ' ', am];
@@ -82,8 +94,23 @@ class DateTimeAPI {
     return formatDate(dateTime, format);
   }
 
-  static String formatDateTime(DateTime dateTime, {dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
-    return formatDate(dateTime, [dd, dateSeparator, mm, dateSeparator, yyyy, dateTimeSeparator, hh, timeSeparator, nn, timeSeparator, ss, ' ', am]);
+  static String formatDateTime(DateTime dateTime,
+      {dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
+    return formatDate(dateTime, [
+      dd,
+      dateSeparator,
+      mm,
+      dateSeparator,
+      yyyy,
+      dateTimeSeparator,
+      hh,
+      timeSeparator,
+      nn,
+      timeSeparator,
+      ss,
+      ' ',
+      am
+    ]);
   }
 
   static DateTime lastDateOfMonth() {
@@ -113,19 +140,23 @@ class DateTimeAPI {
   }
 
   static DateTime addMonth(DateTime dateTime, int months) {
-    return DateTime(dateTime.year, dateTime.month + months, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
+    return DateTime(dateTime.year, dateTime.month + months, dateTime.day,
+        dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
   }
 
   static DateTime subtractMonth(DateTime dateTime, int months) {
-    return DateTime(dateTime.year, dateTime.month - months, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
+    return DateTime(dateTime.year, dateTime.month - months, dateTime.day,
+        dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
   }
 
   static DateTime addYear(DateTime dateTime, int years) {
-    return DateTime(dateTime.year + years, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
+    return DateTime(dateTime.year + years, dateTime.month, dateTime.day,
+        dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
   }
 
   static DateTime subtractYear(DateTime dateTime, int years) {
-    return DateTime(dateTime.year - years, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
+    return DateTime(dateTime.year - years, dateTime.month, dateTime.day,
+        dateTime.hour, dateTime.minute, dateTime.second, dateTime.millisecond);
   }
 
   static Duration difference(DateTime firstDate, DateTime afterDate) {

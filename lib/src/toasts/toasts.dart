@@ -25,17 +25,33 @@ toast(
 }
 
 successToast(String message) {
-  toast(message, backgroundColor: Colors.teal.withOpacity(0.9), textColor: Colors.white,);
+  toast(
+    message,
+    backgroundColor: Colors.teal.withOpacity(0.9),
+    textColor: Colors.white,
+  );
 }
 
 errorToast(String message) {
-  toast(message, backgroundColor: Colors.red.withOpacity(0.9), textColor: Colors.white,);
+  toast(
+    message,
+    backgroundColor: Colors.red.withOpacity(0.9),
+    textColor: Colors.white,
+  );
 }
 
 warningToast(String message) {
-  toast(message, backgroundColor: Colors.deepOrange.withOpacity(0.9), textColor: Colors.white,);
+  toast(
+    message,
+    backgroundColor: Colors.deepOrange.withOpacity(0.9),
+    textColor: Colors.white,
+  );
 }
 
 infoToast(String message) {
-  toast(message, backgroundColor: Colors.grey[350], textColor: Colors.black,);
+  toast(
+    message,
+    backgroundColor: Colors.grey[350],
+    textColor: Colors.black,
+  );
 }

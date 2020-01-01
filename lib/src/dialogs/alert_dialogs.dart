@@ -208,7 +208,9 @@ class _AlertDialogState extends State<AlertDialog> {
                 child: SingleChildScrollView(
                   child: Text(
                     widget.message,
-                    textAlign: widget.textAlign == null ? TextAlign.center : widget.textAlign,
+                    textAlign: widget.textAlign == null
+                        ? TextAlign.center
+                        : widget.textAlign,
                     style: TextStyle(
                       fontSize: 16.0,
                     ),
@@ -240,7 +242,8 @@ class _AlertDialogState extends State<AlertDialog> {
                     widget.showNeutralButton
                         ? FlatButton(
                             onPressed: () {
-                              Navigator.of(context).pop(); // To close the dialog
+                              Navigator.of(context)
+                                  .pop(); // To close the dialog
                               widget.neutralAction();
                             },
                             child: Text(widget.neutralText),
@@ -474,7 +477,8 @@ confirmationDialog(
   );
 }
 
-waitDialog(BuildContext context, {message = "Please wait...", Duration duration}) {
+waitDialog(BuildContext context,
+    {message = "Please wait...", Duration duration}) {
   var dialog = Dialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(16.0),
@@ -486,7 +490,8 @@ waitDialog(BuildContext context, {message = "Please wait...", Duration duration}
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Container(margin: EdgeInsets.all(8), child: CircularProgressIndicator()),
+          Container(
+              margin: EdgeInsets.all(8), child: CircularProgressIndicator()),
           Text(message),
         ],
       ),

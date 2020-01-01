@@ -28,7 +28,8 @@ extension TextEditingControllerExtension on TextEditingController {
   selectAllOnFocus(FocusNode node) {
     node.addListener(() {
       if (node.hasFocus) {
-        this.selection = TextSelection(baseOffset: 0, extentOffset: this.text.trim().length);
+        this.selection =
+            TextSelection(baseOffset: 0, extentOffset: this.text.trim().length);
       }
     });
   }
@@ -37,7 +38,8 @@ extension TextEditingControllerExtension on TextEditingController {
 selectAllOnFocus(TextEditingController controller, FocusNode node) {
   node.addListener(() {
     if (node.hasFocus) {
-      controller.selection = TextSelection(baseOffset: 0, extentOffset: controller.text.length);
+      controller.selection =
+          TextSelection(baseOffset: 0, extentOffset: controller.text.length);
     }
   });
 }
@@ -52,15 +54,48 @@ extension DateTimeExtension on DateTime {
   }
 
   String toTimeWithMillisecondsString({separator: ':'}) {
-    return formatDate(this, [hh, separator, nn, separator, ss, ',', SSS, ' ', am]);
+    return formatDate(
+        this, [hh, separator, nn, separator, ss, ',', SSS, ' ', am]);
   }
 
-  String toDateTimeString({dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
-    return formatDate(this, [dd, dateSeparator, mm, dateSeparator, yyyy, dateTimeSeparator, hh, timeSeparator, nn, timeSeparator, ss, ' ', am]);
+  String toDateTimeString(
+      {dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
+    return formatDate(this, [
+      dd,
+      dateSeparator,
+      mm,
+      dateSeparator,
+      yyyy,
+      dateTimeSeparator,
+      hh,
+      timeSeparator,
+      nn,
+      timeSeparator,
+      ss,
+      ' ',
+      am
+    ]);
   }
 
-  String toDateTimeWithMillisecondsString({dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
-    return formatDate(this, [dd, dateSeparator, mm, dateSeparator, yyyy, dateTimeSeparator, hh, timeSeparator, nn, timeSeparator, ss, ',', SSS, ' ', am]);
+  String toDateTimeWithMillisecondsString(
+      {dateSeparator: '-', timeSeparator: ':', dateTimeSeparator: ' '}) {
+    return formatDate(this, [
+      dd,
+      dateSeparator,
+      mm,
+      dateSeparator,
+      yyyy,
+      dateTimeSeparator,
+      hh,
+      timeSeparator,
+      nn,
+      timeSeparator,
+      ss,
+      ',',
+      SSS,
+      ' ',
+      am
+    ]);
   }
 
   DateTime lastDateOfMonth() {
@@ -70,8 +105,9 @@ extension DateTimeExtension on DateTime {
   DateTime firstDateOfMonth() {
     return DateTime(this.year, this.month, 1);
   }
-  
-  String format({format: "${DateFormats.DD_MM_YYYY} ${TimeFormats.hh_mm_ss_a}"}) {
+
+  String format(
+      {format: "${DateFormats.DD_MM_YYYY} ${TimeFormats.hh_mm_ss_a}"}) {
     return DateFormat(format).format(this);
   }
 }

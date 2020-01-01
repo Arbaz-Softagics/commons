@@ -30,7 +30,8 @@ Widget loadingScreen(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(margin: EdgeInsets.all(16), child: CircularProgressIndicator()),
+            Container(
+                margin: EdgeInsets.all(16), child: CircularProgressIndicator()),
             loadingType == LoadingType.SCALING
                 ? ScalingText(
                     message,
