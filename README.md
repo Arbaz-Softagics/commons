@@ -126,4 +126,4 @@ loadingScreen(
 - For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/)
 
 - Get complete code from [Github](https://github.com/Arbaz-Softagics/commons)
-- [Ch Arbaz Mateen](arbazmateen.com)
+- [Ch Arbaz Mateen](http://arbazmateen.com/)
