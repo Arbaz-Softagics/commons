@@ -1,3 +1,7 @@
+## [0.3.6] - .md file updated
+
+* .md file changed
+
 ## [0.3.5] - Example Added
 
 * Complete example added
