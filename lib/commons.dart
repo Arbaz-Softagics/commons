@@ -17,6 +17,7 @@ export 'package:commons/src/screens/widget_view_screen.dart';
 export 'package:commons/src/validators/validator.dart';
 export 'package:commons/src/functions/try_catch.dart';
 export 'package:commons/src/functions/date_time.dart';
+export 'package:commons/src/functions/connectivity_functions.dart';
 
 // Dependencies export
 export 'package:url_launcher/url_launcher.dart';
@@ -29,3 +30,4 @@ export 'package:progress_indicators/progress_indicators.dart';
 export 'package:date_format/date_format.dart';
 export 'package:time/time.dart';
 export 'package:intl/intl.dart';
+export 'package:data_connection_checker/data_connection_checker.dart';

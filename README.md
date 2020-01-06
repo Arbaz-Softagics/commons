@@ -7,10 +7,11 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
  - [Toast messages](#Toasts)
  - Loading screen
  - Extensions functions
- - Strack trace dialog
+ - Stack trace screen
  - Shared Preferences functions
  - Value validators
  - Date and Time functions
+ - Connection Functions
 
 # How to use
 
@@ -18,10 +19,8 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 
 Add this to your package's pubspec.yaml file:
 ```yaml
-
-    dependencies:  
-      commons: ^0.3.7
-   
+dependencies:  
+  commons: ^0.3.8
 ```
 
 ### 2. Install it
@@ -30,9 +29,7 @@ You can install packages from the command line:
 
 with Flutter:
 ```sh
-
-    $ flutter pub get
-    
+$ flutter pub get
 ```
 Alternatively, your editor might support  `flutter pub get`. Check the docs for your editor to learn more.
 
@@ -40,9 +37,7 @@ Alternatively, your editor might support  `flutter pub get`. Check the docs for 
 
 Now in your Dart code, you can use:
 ```dart
-
-    import  'package:commons/commons.dart';
-
+import  'package:commons/commons.dart';
 ```
 
 ## Dialogs
@@ -69,29 +64,25 @@ Now in your Dart code, you can use:
 ### Success Dialog
 
 ```dart
-
-    successDialog(  
-        context,  
-        "Success message",  
-        negativeText: "Try Again",  
-        negativeAction: () {},  
-        positiveText: "Details",  
-        positiveAction: () {},  
-    );
-
+successDialog(  
+    context,  
+    "Success message",  
+    negativeText: "Try Again",  
+    negativeAction: () {},  
+    positiveText: "Details",  
+    positiveAction: () {},  
+);
 ```
 
 ### Confirm Dialog
 
 ```dart
-
-    confirmationDialog(
-        context, 
-        "Confirm demo dialog", 
-        positiveText: "Delete", 
-        positiveAction: () {}
-    );
-
+confirmationDialog(
+    context, 
+    "Confirm demo dialog", 
+    positiveText: "Delete", 
+    positiveAction: () {}
+);
 ```
 
 ## Toasts
@@ -112,9 +103,7 @@ Now in your Dart code, you can use:
 
 Commons used [OKToast](https://pub.dev/packages/oktoast) dart package please check [OKToast](https://pub.dev/packages/oktoast) requirements first.
 ```dart
-
-    successToast("Success toast");
-
+successToast("Success toast");
 ```
 
 # Loading screen
@@ -124,20 +113,19 @@ Commons used [OKToast](https://pub.dev/packages/oktoast) dart package please che
 </p>
 
 ```dart
-    
+push(
     loadingScreen(  
         context,  
         duration: Duration(  
             seconds: 5,  
         ),  
         loadingType: LoadingType.JUMPING,
-    ),
-    
+    )  
+)
 ```
 
 # Documentation
 
-- For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/)
-
-- Get complete code from [Github](https://github.com/Arbaz-Softagics/commons)
-- [Ch Arbaz Mateen](http://arbazmateen.com/)
+For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/)
+Get complete code from [Github](https://github.com/Arbaz-Softagics/commons)
+[Ch Arbaz Mateen](http://arbazmateen.com/)

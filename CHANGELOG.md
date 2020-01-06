@@ -1,3 +1,8 @@
+## [0.3.7] - Connection Functions
+
+* Internet connection listener
+* Connection checker
+
 ## [0.3.7] - .md file updated
 
 * .md file changed

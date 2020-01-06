@@ -7,6 +7,21 @@
       children: <Widget>[
         ListTile(
           onTap: () {
+            checkInternet().then((connected) {
+              setState(() {
+                _connected = connected;
+              });
+            });
+          },
+          title: Text("Connected: $_connected"),
+          subtitle: Text("Click to check internet connection"),
+        ),
+        ListTile(
+          title: Text("Connected: $_online"),
+          subtitle: Text("Connection listener"),
+        ),
+        ListTile(
+          onTap: () {
             var now = DateTime.now();
             print("${now.format()}");
             print("${now.toDateString()}");
