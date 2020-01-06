@@ -49,7 +49,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.3.9"
+    version: "0.4.1"
   convert:
     dependency: transitive
     description:
@@ -92,13 +92,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.1+4"
-  dio:
-    dependency: transitive
-    description:
-      name: dio
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.8"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -114,6 +107,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_version:
+    dependency: transitive
+    description:
+      name: get_version
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0+1"
   http:
     dependency: transitive
     description:

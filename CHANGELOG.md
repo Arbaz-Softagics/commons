@@ -1,3 +1,7 @@
+## [0.4.1] - OS Version
+
+* Get OS Version
+
 ## [0.4.0] - Http Functions (Updated)
 
 * minor changes

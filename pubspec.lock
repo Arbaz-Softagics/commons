@@ -78,13 +78,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.1+4"
-  dio:
-    dependency: "direct main"
-    description:
-      name: dio
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.8"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -100,6 +93,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_version:
+    dependency: "direct main"
+    description:
+      name: get_version
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0+1"
   http:
     dependency: "direct main"
     description:

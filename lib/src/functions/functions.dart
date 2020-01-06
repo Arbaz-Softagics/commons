@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
+import 'package:get_version/get_version.dart';
 import 'package:package_info/package_info.dart';
 
 delay(Duration duration, Function fun) {
@@ -13,11 +14,17 @@ delay(Duration duration, Function fun) {
 Future<String> getPackageInfo() async {
   String _info = "";
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  String platformVersion = await GetVersion.platformVersion;
 
   _info = "App Name: ${packageInfo.appName}\n";
   _info += "Package Name: ${packageInfo.packageName}\n";
   _info += "Version: ${packageInfo.version}\n";
-  _info += "Build Number: ${packageInfo.buildNumber}";
+  _info += "Build Number: ${packageInfo.buildNumber}\n";
+  if (Platform.isAndroid) {
+    _info += "Running On: Android $platformVersion";
+  } else {
+    _info += "Running On: IOS $platformVersion";
+  }
 
   return _info;
 }
@@ -27,6 +34,15 @@ Future<String> getDeviceInfo() async {
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
   if (Platform.isAndroid) {
     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String platformVersion = await GetVersion.platformVersion;
+    
+    _info = "App Name: ${packageInfo.appName}\n";
+    _info += "Package Name: ${packageInfo.packageName}\n";
+    _info += "Version: ${packageInfo.version}\n";
+    _info += "Build Number: ${packageInfo.buildNumber}\n";
+    _info += "Running On: Android $platformVersion\n\n";
+
     _info += "ANDROID DEVICE INFO\n";
     _info += "AndroidId: ${androidInfo.androidId}\n";
     _info += "Board: ${androidInfo.board}\n";
@@ -57,6 +73,15 @@ Future<String> getDeviceInfo() async {
     _info += "Security Path: ${androidInfo.version.securityPatch}\n";
   } else {
     IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String platformVersion = await GetVersion.platformVersion;
+
+    _info = "App Name: ${packageInfo.appName}\n";
+    _info += "Package Name: ${packageInfo.packageName}\n";
+    _info += "Version: ${packageInfo.version}\n";
+    _info += "Build Number: ${packageInfo.buildNumber}\n";
+    _info += "Running On: IOS $platformVersion\n\n";
+
     _info += "APPLE DEVICE INFO\n";
     _info += "IdentifierForVendor: ${iosInfo.identifierForVendor}\n";
     _info += "IsPhysicalDevice: ${iosInfo.isPhysicalDevice}\n";
