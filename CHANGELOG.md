@@ -1,4 +1,12 @@
-## [0.3.7] - Connection Functions
+## [0.4.0] - Http Functions (Updated)
+
+* minor changes
+
+## [0.3.9] - Http Functions
+
+* http rest client api function added
+
+## [0.3.8] - Connection Functions
 
 * Internet connection listener
 * Connection checker
