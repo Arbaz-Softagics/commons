@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:commons/src/dialogs/alert_dialogs.dart';
 import 'package:commons/src/functions/navigation_functions.dart';
-import 'package:commons/src/screens/stack_trace_dialog.dart';
+import 'package:commons/src/screens/stack_trace_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;

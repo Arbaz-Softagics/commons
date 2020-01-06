@@ -34,9 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _online = false;
   bool _connected = false;
   var listener;
+  String singleInput = "";
 
   _checkInternet() async {
-    listener = await ConnectionChecker().getInstance().setDuration(Duration(seconds: 1,)).listener(
+    listener = await ConnectionChecker()
+        .getInstance()
+        .setDuration(Duration(
+          seconds: 1,
+        ))
+        .listener(
       connected: () {
         setState(() {
           _online = true;
@@ -159,6 +165,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 confirmationDialog(context, "Confirm demo dialog", positiveText: "Delete", positiveAction: () {});
               },
               title: Text("Confirm Dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                singleInputDialog(
+                  context,
+                  title: "Input Dialog",
+                  label: "Name",
+                  errorText: "Required!",
+                  validator: (value) {
+                    print("Validator: $value");
+                    return value.isNotEmpty;
+                  },
+                  positiveAction: (value) {
+                    print("Submit: $value");
+                  },
+                  negativeAction: () {
+                    print("negative action");
+                  },
+                  neutralAction: () {
+                    print("neutral action");
+                  },
+                );
+              },
+              title: Text("Single input dialog"),
+              subtitle: Text("$singleInput"),
             ),
             ListTile(
               onTap: () {

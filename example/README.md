@@ -2,7 +2,7 @@
 
 [example/lib/main.dart](https://github.com/Arbaz-Softagics/commons/blob/master/example/lib/main.dart)
 
-```
+```dart
     ListView(
       children: <Widget>[
         ListTile(
@@ -96,6 +96,31 @@
         ),
         ListTile(
           onTap: () {
+            singleInputDialog(
+              context,
+              title: "Input Dialog",
+              label: "Name",
+              errorText: "Required!",
+              validator: (value) {
+                print("Validator: $value");
+                return value.isNotEmpty;
+              },
+              positiveAction: (value) {
+                print("Submit: $value");
+              },
+              negativeAction: () {
+                print("negative action");
+              },
+              neutralAction: () {
+                print("neutral action");
+              },
+            );
+          },
+          title: Text("Single input dialog"),
+          subtitle: Text("$singleInput"),
+        ),
+        ListTile(
+          onTap: () {
             waitDialog(context, duration: Duration(seconds: 3));
           },
           title: Text("Wait Dialog"),
@@ -105,6 +130,48 @@
             tryCatch(context, this, () {
               throw Exception("throw exception manully...");
             });
+//                try {
+//                  throw Exception("throw exception manully...");
+//                } on Exception catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } on Error catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                }
           },
           title: Text("Stack Trace Dialog"),
         ),

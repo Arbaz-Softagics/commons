@@ -1,6 +1,6 @@
 import 'package:commons/src/dialogs/alert_dialogs.dart';
 import 'package:commons/src/functions/navigation_functions.dart';
-import 'package:commons/src/screens/stack_trace_dialog.dart';
+import 'package:commons/src/screens/stack_trace_screen.dart';
 import 'package:flutter/material.dart';
 
 tryCatch(BuildContext context, State state, Function action) {

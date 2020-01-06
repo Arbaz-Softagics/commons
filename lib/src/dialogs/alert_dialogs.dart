@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class AlertDialog extends StatefulWidget {
+class __AlertDialog extends StatefulWidget {
   static const SUCCESS = Color(0xff008577);
   static const WARNING = Color(0xffFF8C00);
   static const ERROR = Color(0xffc0392b);
@@ -22,7 +22,7 @@ class AlertDialog extends StatefulWidget {
   final bool confirm;
   final TextAlign textAlign;
 
-  AlertDialog({
+  __AlertDialog({
     @required this.color,
     @required this.title,
     @required this.message,
@@ -39,10 +39,10 @@ class AlertDialog extends StatefulWidget {
   });
 
   @override
-  _AlertDialogState createState() => _AlertDialogState();
+  __AlertDialogState createState() => __AlertDialogState();
 }
 
-class _AlertDialogState extends State<AlertDialog> {
+class __AlertDialogState extends State<__AlertDialog> {
   bool _confirmDeleteAction = false;
 
   final successIcon = Icon(
@@ -153,19 +153,19 @@ class _AlertDialogState extends State<AlertDialog> {
     _dialogIcon = confirmIcon;
 
     switch (widget.icon) {
-      case AlertDialog.SUCCESS_ICON:
+      case __AlertDialog.SUCCESS_ICON:
         _dialogIcon = successIcon;
         break;
-      case AlertDialog.ERROR_ICON:
+      case __AlertDialog.ERROR_ICON:
         _dialogIcon = errorIcon;
         break;
-      case AlertDialog.WARNING_ICON:
+      case __AlertDialog.WARNING_ICON:
         _dialogIcon = warningIcon;
         break;
-      case AlertDialog.INFO_ICON:
+      case __AlertDialog.INFO_ICON:
         _dialogIcon = infoIcon;
         break;
-      case AlertDialog.HELP_ICON:
+      case __AlertDialog.HELP_ICON:
         _dialogIcon = confirmIcon;
         break;
     }
@@ -291,7 +291,7 @@ dialog(
     context: context,
     builder: (BuildContext context) => WillPopScope(
       onWillPop: () async => closeOnBackPress,
-      child: AlertDialog(
+      child: __AlertDialog(
         color: color,
         title: title,
         message: message,
@@ -322,12 +322,12 @@ successDialog(
   Function neutralAction,
   title = "Success",
   closeOnBackPress = true,
-  icon = AlertDialog.SUCCESS_ICON,
+  icon = __AlertDialog.SUCCESS_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
-    AlertDialog.SUCCESS,
+    __AlertDialog.SUCCESS,
     title,
     message,
     showNeutralButton,
@@ -355,12 +355,12 @@ errorDialog(
   Function neutralAction,
   title = "Error",
   closeOnBackPress = false,
-  icon = AlertDialog.ERROR_ICON,
+  icon = __AlertDialog.ERROR_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
-    AlertDialog.ERROR,
+    __AlertDialog.ERROR,
     title,
     message,
     showNeutralButton,
@@ -388,12 +388,12 @@ warningDialog(
   Function neutralAction,
   title = "Warning",
   closeOnBackPress = false,
-  icon = AlertDialog.WARNING_ICON,
+  icon = __AlertDialog.WARNING_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
-    AlertDialog.WARNING,
+    __AlertDialog.WARNING,
     title,
     message,
     showNeutralButton,
@@ -421,12 +421,12 @@ infoDialog(
   Function neutralAction,
   title = "Info",
   closeOnBackPress = false,
-  icon = AlertDialog.INFO_ICON,
+  icon = __AlertDialog.INFO_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
-    AlertDialog.INFO,
+    __AlertDialog.INFO,
     title,
     message,
     showNeutralButton,
@@ -454,13 +454,13 @@ confirmationDialog(
   Function neutralAction,
   title = "Confirmation?",
   closeOnBackPress = false,
-  icon = AlertDialog.HELP_ICON,
+  icon = __AlertDialog.HELP_ICON,
   confirm: true,
   textAlign: TextAlign.center,
 }) {
   return dialog(
     context,
-    AlertDialog.WARNING,
+    __AlertDialog.WARNING,
     title,
     message,
     showNeutralButton,

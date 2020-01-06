@@ -1,3 +1,7 @@
+## [0.4.2] - Single input dialog
+
+* Single input dialog added
+
 ## [0.4.1] - OS Version
 
 * Get OS Version
