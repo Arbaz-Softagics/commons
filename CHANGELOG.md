@@ -1,3 +1,7 @@
+## [0.4.4] - Bugs Fixes
+
+* Bugs fixes
+
 ## [0.4.3] - Bugs Fixes
 
 * Bugs fixes

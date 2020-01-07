@@ -18,8 +18,9 @@ class ConnectionChecker {
     _instance.checkInterval = duration;
     return this;
   }
-  
-  listener({Function connected, Function disconnected, Function onError}) async {
+
+  listener(
+      {Function connected, Function disconnected, Function onError}) async {
     getInstance();
     return _instance.onStatusChange.listen(
       (DataConnectionStatus status) {

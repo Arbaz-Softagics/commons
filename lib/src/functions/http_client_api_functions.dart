@@ -7,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
-enum RequestMethod {
-  POST, GET, POST_JSON
-}
+enum RequestMethod { POST, GET, POST_JSON }
 
 //class RequestMethod {
 //  static const POST = "post";
@@ -37,22 +35,39 @@ class ResponseCode {
   static showErrorCode(BuildContext context, int responseCode) {
     var codeType = ResponseCode.codeType(responseCode);
     if (codeType == ResponseCode.SERVER_ERROR) {
-      errorDialog(context, "Internal SERVER error!", title: "Error Code: $responseCode");
+      errorDialog(context, "Internal SERVER error!",
+          title: "Error Code: $responseCode");
     } else if (codeType == ResponseCode.CLIENT_ERROR) {
-      errorDialog(context, "Found error on CLIENT side!", title: "Error Code: $responseCode");
+      errorDialog(context, "Found error on CLIENT side!",
+          title: "Error Code: $responseCode");
     } else if (codeType == ResponseCode.REDIRECT_ERROR) {
-      errorDialog(context, "Found REDIRECT error!", title: "Error Code: $responseCode");
+      errorDialog(context, "Found REDIRECT error!",
+          title: "Error Code: $responseCode");
     } else {
-      errorDialog(context, "Failed to Connect!, Error Unknown!", title: "Error Code: $responseCode");
+      errorDialog(context, "Failed to Connect!, Error Unknown!",
+          title: "Error Code: $responseCode");
     }
   }
 }
 
-acceptJsonTypeXForm() => {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"};
-acceptJsonTypeXFormWithAuth(String authKey) => {"Auth": "$authKey", "Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"};
-acceptJsonTypeJson() => {"Accept": "application/json", "Content-Type": "application/json"};
-acceptJsonTypeJsonWithAuth(String authKey) => {"Auth": "$authKey", "Accept": "application/json", "Content-Type": "application/json"};
-acceptJsonWithAuth(String authKey) => {"Auth": "$authKey", "Accept": "application/json"};
+acceptJsonTypeXForm() => {
+      "Accept": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
+acceptJsonTypeXFormWithAuth(String authKey) => {
+      "Auth": "$authKey",
+      "Accept": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
+acceptJsonTypeJson() =>
+    {"Accept": "application/json", "Content-Type": "application/json"};
+acceptJsonTypeJsonWithAuth(String authKey) => {
+      "Auth": "$authKey",
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    };
+acceptJsonWithAuth(String authKey) =>
+    {"Auth": "$authKey", "Accept": "application/json"};
 
 encodingUTF8() => Encoding.getByName("utf-8");
 
@@ -65,16 +80,19 @@ Future<Response> postRequest(String url, Map header, {Map body, log: true}) {
   return http.post(url, headers: header, body: body, encoding: encodingUTF8());
 }
 
-Future<Response> postJsonRequest(String url, Map header, Map body, {log: true}) {
+Future<Response> postJsonRequest(String url, Map header, Map body,
+    {log: true}) {
   if (log) {
     print(">>>>>>>>>>>>>>>>>>>>>> POST $url");
     print(">>>>>>>>>>>>>>>>>>>>>> POST HEADERS $header");
     print(">>>>>>>>>>>>>>>>>>>>>> JSON PRAM ${json.encode(body)}");
   }
-  return http.post(url, headers: header, body: json.encode(body), encoding: encodingUTF8());
+  return http.post(url,
+      headers: header, body: json.encode(body), encoding: encodingUTF8());
 }
 
-Future<Response> getRequest(String url, Map header, {Map<String, String> body, log: true}) {
+Future<Response> getRequest(String url, Map header,
+    {Map<String, String> body, log: true}) {
   if (log) {
     print(">>>>>>>>>>>>>>>>>>>>>> GET $url");
     print(">>>>>>>>>>>>>>>>>>>>>> GET HEADERS $header");
@@ -139,7 +157,8 @@ Future<Response> request(
     }
 
     print("CLASS: ${state.runtimeType}");
-    print("FORMATEXCEPTION: E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}");
+    print(
+        "FORMATEXCEPTION: E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}");
     print("STACK TRACE: $s");
 
     if (showErrorDialogs) {
@@ -153,7 +172,8 @@ Future<Response> request(
             context,
             StackTraceScreen(
               stackTrace: "$s",
-              errorMessage: "E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}",
+              errorMessage:
+                  "E: $e\n\nM: ${e.message.toString()}\n\nS: ${e.source.toString()}",
             ),
           );
         },

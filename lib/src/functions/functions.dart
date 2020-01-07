@@ -36,7 +36,7 @@ Future<String> getDeviceInfo() async {
     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     String platformVersion = await GetVersion.platformVersion;
-    
+
     _info = "App Name: ${packageInfo.appName}\n";
     _info += "Package Name: ${packageInfo.packageName}\n";
     _info += "Version: ${packageInfo.version}\n";
