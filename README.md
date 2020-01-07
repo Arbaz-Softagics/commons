@@ -21,7 +21,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.4.2
+  commons: ^0.4.3
 ```
 
 ### 2. Install it
@@ -127,6 +127,6 @@ push(
 
 # Documentation
 
-For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/)
-Get complete code from [Github](https://github.com/Arbaz-Softagics/commons)
-[Ch Arbaz Mateen](http://arbazmateen.com/)
+For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/).
+Get complete code from [Github](https://github.com/Arbaz-Softagics/commons).
+Author: [Ch Arbaz Mateen](http://arbazmateen.com/)

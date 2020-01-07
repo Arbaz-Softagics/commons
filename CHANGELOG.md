@@ -1,3 +1,7 @@
+## [0.4.3] - Bugs Fixes
+
+* Bugs fixes
+
 ## [0.4.2] - Single input dialog
 
 * Single input dialog added

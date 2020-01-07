@@ -7,11 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
-class RequestMethod {
-  static const POST = "post";
-  static const GET = "get";
-  static const POST_JSON = "postJson";
+enum RequestMethod {
+  POST, GET, POST_JSON
 }
+
+//class RequestMethod {
+//  static const POST = "post";
+//  static const GET = "get";
+//  static const POST_JSON = "postJson";
+//}
 
 class ResponseCode {
   static const int SUCCESS = 200;
@@ -90,7 +94,7 @@ Future<Response> getRequest(String url, Map header, {Map<String, String> body, l
 Future<Response> request(
   BuildContext context,
   State<StatefulWidget> state,
-  String requestMethod,
+  RequestMethod requestMethod,
   String url,
   Map headers, {
   Map prams,

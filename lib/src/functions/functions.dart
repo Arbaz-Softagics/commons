@@ -6,7 +6,7 @@ import 'package:get_version/get_version.dart';
 import 'package:package_info/package_info.dart';
 
 delay(Duration duration, Function fun) {
-  Future.delayed(duration, () {
+  return Future.delayed(duration, () {
     fun();
   });
 }
