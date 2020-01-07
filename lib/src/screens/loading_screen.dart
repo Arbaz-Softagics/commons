@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 
-enum LoadingType {
-  SCALING, JUMPING
-}
+enum LoadingType { SCALING, JUMPING }
 
 //class LoadingType {
 //  static const SCALING = 0;
