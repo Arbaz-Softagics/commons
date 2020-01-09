@@ -60,7 +60,7 @@ import 'package:commons/commons.dart';
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/warning.png" width="240">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/info.png" width="240">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/confirm.png" width="240">
-	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/wait.png" width="240">
+	<img src="https://github.com/Arbaz-Softagics/commons/blob/master/screenshots/wd.gif" width="240">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/stacktrace.png" width="240">
 </p>
 
@@ -137,7 +137,7 @@ successToast("Success toast");
 # Loading screen
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/loading.png" width="240">
+	<img src="https://github.com/Arbaz-Softagics/commons/blob/master/screenshots/ls.gif" width="240">
 </p>
 
 ```dart
