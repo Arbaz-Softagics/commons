@@ -5,6 +5,7 @@ library commons;
 //part 'dialogs/alert_dialogs.dart';
 //part 'dialogs/stack_trace_screen.dart';
 
+/// Export functions, dialogs and classes
 export 'package:commons/src/dialogs/alert_dialogs.dart';
 export 'package:commons/src/dialogs/input_dialogs.dart';
 export 'package:commons/src/screens/stack_trace_screen.dart';
@@ -21,7 +22,7 @@ export 'package:commons/src/functions/date_time.dart';
 export 'package:commons/src/functions/connectivity_functions.dart';
 export 'package:commons/src/functions/http_client_api_functions.dart';
 
-// Dependencies export
+/// Export Dependencies
 export 'package:url_launcher/url_launcher.dart';
 export 'package:device_info/device_info.dart';
 export 'package:package_info/package_info.dart';

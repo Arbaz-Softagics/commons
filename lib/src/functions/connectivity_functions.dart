@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:data_connection_checker/data_connection_checker.dart';
 
+/// ConnectionChecker used for internet connection listener
 class ConnectionChecker {
   DataConnectionChecker _instance;
 
@@ -47,6 +48,7 @@ class ConnectionChecker {
   }
 }
 
+/// Instant check internet connection by providing the lookup address default is google.com
 Future<bool> checkInternet({lookupAddress: "google.com"}) async {
   bool internet = false;
   try {

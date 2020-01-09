@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+/// Private class __AlertDialog
+/// cannot use
 class __AlertDialog extends StatefulWidget {
   static const SUCCESS = Color(0xff008577);
   static const WARNING = Color(0xffFF8C00);
@@ -269,6 +271,7 @@ class __AlertDialogState extends State<__AlertDialog> {
   }
 }
 
+/// Generic dialog function
 dialog(
   BuildContext context,
   Color color,
@@ -310,6 +313,7 @@ dialog(
   );
 }
 
+/// Success dialog
 successDialog(
   BuildContext context,
   String message, {
@@ -343,6 +347,7 @@ successDialog(
   );
 }
 
+/// Error Dialog
 errorDialog(
   BuildContext context,
   String message, {
@@ -376,6 +381,7 @@ errorDialog(
   );
 }
 
+/// Warning Dialog
 warningDialog(
   BuildContext context,
   String message, {
@@ -409,6 +415,7 @@ warningDialog(
   );
 }
 
+/// Info Dialog
 infoDialog(
   BuildContext context,
   String message, {
@@ -442,6 +449,7 @@ infoDialog(
   );
 }
 
+/// Confirmation Dialog
 confirmationDialog(
   BuildContext context,
   String message, {
@@ -477,6 +485,7 @@ confirmationDialog(
   );
 }
 
+/// Waiting Dialog
 waitDialog(BuildContext context,
     {message = "Please wait...", Duration duration}) {
   var dialog = Dialog(

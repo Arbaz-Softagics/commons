@@ -2,6 +2,7 @@ import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+/// String extension functions
 extension StringExtensions on String {
   String toCapitalize() {
     var text = this.trim();
@@ -24,6 +25,7 @@ extension StringExtensions on String {
   }
 }
 
+/// TextEditingController extension functions
 extension TextEditingControllerExtension on TextEditingController {
   selectAllOnFocus(FocusNode node) {
     node.addListener(() {
@@ -35,6 +37,7 @@ extension TextEditingControllerExtension on TextEditingController {
   }
 }
 
+/// select all text on focus
 selectAllOnFocus(TextEditingController controller, FocusNode node) {
   node.addListener(() {
     if (node.hasFocus) {
@@ -44,6 +47,7 @@ selectAllOnFocus(TextEditingController controller, FocusNode node) {
   });
 }
 
+/// datetime extension functions
 extension DateTimeExtension on DateTime {
   String toDateString({separator: '-'}) {
     return formatDate(this, [dd, separator, mm, separator, yyyy]);
@@ -112,12 +116,14 @@ extension DateTimeExtension on DateTime {
   }
 }
 
+/// double extension functions
 extension DoubleExtension on double {
   String format({format: "#,###.00"}) {
     return NumberFormat(format, 'en_US').format(this);
   }
 }
 
+/// int extension functions
 extension IntExtension on int {
   String format({format: "#,###"}) {
     return NumberFormat(format, 'en_US').format(this);

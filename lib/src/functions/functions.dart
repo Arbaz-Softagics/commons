@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:get_version/get_version.dart';
 import 'package:package_info/package_info.dart';
 
+/// future delay
 delay(Duration duration, Function fun) {
   return Future.delayed(duration, () {
     fun();
   });
 }
 
+/// package info function
 Future<String> getPackageInfo() async {
   String _info = "";
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -29,6 +31,7 @@ Future<String> getPackageInfo() async {
   return _info;
 }
 
+/// device info function
 Future<String> getDeviceInfo() async {
   String _info = "";
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -99,6 +102,7 @@ Future<String> getDeviceInfo() async {
   return _info;
 }
 
+/// highlight title text
 Widget highlightTitleTextWidget(
   BuildContext context,
   String string,
@@ -135,6 +139,7 @@ Widget highlightTitleTextWidget(
   }
 }
 
+/// highlight sub title text
 Widget highlightSubTitleTextWidget(
   BuildContext context,
   String string,

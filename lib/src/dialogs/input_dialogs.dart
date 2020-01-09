@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Private __SingleInputDialog class
 class __SingleInputDialog extends StatefulWidget {
   final String title;
   final String label;
@@ -131,6 +132,7 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
   }
 }
 
+/// Single Input Dialog function
 singleInputDialog(
   BuildContext context, {
   String title = "Input",
