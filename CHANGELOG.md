@@ -1,3 +1,7 @@
+## [0.4.7] - Minor changes
+
+* Minor changes
+
 ## [0.4.6] - Bugs Fixes
 
 * Bugs fixes
