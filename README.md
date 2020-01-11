@@ -6,6 +6,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
  - [Alert dialog](#Dialogs)
  - [Toast messages](#Toasts)
  - Single input dialog
+ - Options dialog
  - Loading screen
  - Extensions functions
  - Stack trace screen
@@ -24,7 +25,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.4.9
+  commons: ^0.5.0
 ```
 
 ### 2. Install it
@@ -53,6 +54,7 @@ import 'package:commons/commons.dart';
 - Confirmation Dialog
 - Wait Dialog
 - Single Input Dialog
+- option dialog
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/success.png" width="240">
@@ -62,6 +64,7 @@ import 'package:commons/commons.dart';
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/confirm.png" width="240">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/wd.gif" width="240">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/stacktrace.png" width="240">
+	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/od.png" width="240">
 </p>
 
 ## How to use
@@ -111,6 +114,17 @@ singleInputDialog(
       print("neutral action");
     },
 );
+```
+
+### Options dialog
+```dart
+var options = List<Option>()
+              ..add(Option.edit())
+              ..add(Option.view())
+              ..add(Option.details())
+              ..add(Option.delete())
+              ..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
+optionsDialog(context, "Options", options);
 ```
 
 ## Toasts
@@ -361,7 +375,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   throw Exception("throw exception manully...");
                 });
               },
-              title: Text("Stack Trace Dialog"),
+              title: Text("Stack Trace Screen"),
+            ),
+            ListTile(
+              onTap: () {
+                var options = List<Option>()..add(Option.edit())..add(Option.view())..add(Option.details())..add(Option.delete())..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
+                optionsDialog(context, "Options", options);
+              },
+              title: Text("Options Dialog"),
             ),
             ListTile(
               onTap: () {

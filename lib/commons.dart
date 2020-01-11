@@ -8,6 +8,7 @@ library commons;
 /// Export functions, dialogs and classes
 export 'package:commons/src/dialogs/alert_dialogs.dart';
 export 'package:commons/src/dialogs/input_dialogs.dart';
+export 'package:commons/src/dialogs/options_dialog.dart';
 export 'package:commons/src/screens/stack_trace_screen.dart';
 export 'package:commons/src/functions/functions.dart';
 export 'package:commons/src/functions/extension_functions.dart';

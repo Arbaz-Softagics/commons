@@ -208,7 +208,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   throw Exception("throw exception manully...");
                 });
               },
-              title: Text("Stack Trace Dialog"),
+              title: Text("Stack Trace Screen"),
+            ),
+            ListTile(
+              onTap: () {
+                var options = List<Option>()..add(Option.edit())..add(Option.view())..add(Option.details())..add(Option.delete())..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
+                optionsDialog(context, "Options", options);
+              },
+              title: Text("Options Dialog"),
             ),
             ListTile(
               onTap: () {

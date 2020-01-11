@@ -1,3 +1,7 @@
+## [0.5.0] - Options Dialog
+
+* Options dialog added
+
 ## [0.4.9] - Readme.md file update
 
 * Readme.md file update

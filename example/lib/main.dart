@@ -100,22 +100,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 print("${now.toTimeString()}");
                 print("${now.toDateTimeString()}");
                 print("${now.toDateTimeWithMillisecondsString()}");
-                print("sqlDateFormat: ${DateTimeAPI.sqlDateFormat(DateTime.now())}");
-                print("sqlDateTimeFormat: ${DateTimeAPI.sqlDateTimeFormat(DateTime.now())}");
-                print("sqlStartDateTimeFormat: ${DateTimeAPI.sqlStartDateTimeFormat(DateTime.now())}");
-                print("sqlEndDateTimeFormat: ${DateTimeAPI.sqlEndDateTimeFormat(DateTime.now())}");
-                print("formatDateOnly: ${DateTimeAPI.formatDateOnly(DateTime.now())}");
-                print("formatTimeOnly: ${DateTimeAPI.formatTimeOnly(DateTime.now())}");
-                print("formatDateTime: ${DateTimeAPI.formatDateTime(DateTime.now())}");
+                print(
+                    "sqlDateFormat: ${DateTimeAPI.sqlDateFormat(DateTime.now())}");
+                print(
+                    "sqlDateTimeFormat: ${DateTimeAPI.sqlDateTimeFormat(DateTime.now())}");
+                print(
+                    "sqlStartDateTimeFormat: ${DateTimeAPI.sqlStartDateTimeFormat(DateTime.now())}");
+                print(
+                    "sqlEndDateTimeFormat: ${DateTimeAPI.sqlEndDateTimeFormat(DateTime.now())}");
+                print(
+                    "formatDateOnly: ${DateTimeAPI.formatDateOnly(DateTime.now())}");
+                print(
+                    "formatTimeOnly: ${DateTimeAPI.formatTimeOnly(DateTime.now())}");
+                print(
+                    "formatDateTime: ${DateTimeAPI.formatDateTime(DateTime.now())}");
                 print("lastDateOfMonth: ${DateTimeAPI.lastDateOfMonth()}");
                 print("firstDateOfMonth: ${DateTimeAPI.firstDateOfMonth()}");
-                print("add: ${DateTimeAPI.add(DateTime.now(), Duration(days: 5))}");
-                print("subtract: ${DateTimeAPI.subtract(DateTime.now(), Duration(days: 5))}");
+                print(
+                    "add: ${DateTimeAPI.add(DateTime.now(), Duration(days: 5))}");
+                print(
+                    "subtract: ${DateTimeAPI.subtract(DateTime.now(), Duration(days: 5))}");
                 print("addDay: ${DateTimeAPI.addDay(DateTime.now(), 5)}");
-                print("subtractDay: ${DateTimeAPI.subtractDay(DateTime.now(), 5)}");
+                print(
+                    "subtractDay: ${DateTimeAPI.subtractDay(DateTime.now(), 5)}");
                 print("addMonth: ${DateTimeAPI.addMonth(DateTime.now(), 1)}");
-                print("subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
-                print("difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
+                print(
+                    "subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
+                print(
+                    "difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
 
                 print("Numbers");
                 int i = 123456;
@@ -162,7 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                confirmationDialog(context, "Confirm demo dialog", positiveText: "Delete", positiveAction: () {});
+                confirmationDialog(context, "Confirm demo dialog",
+                    positiveText: "Delete", positiveAction: () {});
               },
               title: Text("Confirm Dialog"),
             ),
@@ -245,7 +258,19 @@ class _MyHomePageState extends State<MyHomePage> {
 //                  );
 //                }
               },
-              title: Text("Stack Trace Dialog"),
+              title: Text("Stack Trace Screen"),
+            ),
+            ListTile(
+              onTap: () {
+                var options = List<Option>()
+                  ..add(Option.edit())
+                  ..add(Option.view())
+                  ..add(Option.details())
+                  ..add(Option.delete())
+                  ..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
+                optionsDialog(context, "Options", options);
+              },
+              title: Text("Options Dialog"),
             ),
             ListTile(
               onTap: () {
