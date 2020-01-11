@@ -115,8 +115,8 @@ Widget highlightTitleTextWidget(
   }
 
   if (wordStyle == null) {
-    wordStyle = const TextStyle(
-        color: Colors.pink,
+    wordStyle = TextStyle(
+        color: Theme.of(context).accentColor,
         fontSize: 16,
         fontWeight: FontWeight.bold,
         fontStyle: FontStyle.italic);
@@ -152,8 +152,8 @@ Widget highlightSubTitleTextWidget(
   }
 
   if (wordStyle == null) {
-    wordStyle = const TextStyle(
-        color: Colors.pink,
+    wordStyle = TextStyle(
+        color: Theme.of(context).accentColor,
         fontSize: 16,
         fontWeight: FontWeight.bold,
         fontStyle: FontStyle.italic);

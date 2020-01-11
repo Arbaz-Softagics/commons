@@ -1,3 +1,7 @@
+## [0.5.1] - List View Screen
+
+* Added: List view screen with search field
+
 ## [0.5.0] - Options Dialog
 
 * Options dialog added

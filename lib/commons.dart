@@ -17,6 +17,7 @@ export 'package:commons/src/shared_preferences/shared_prefrences.dart';
 export 'package:commons/src/toasts/toasts.dart';
 export 'package:commons/src/screens/loading_screen.dart';
 export 'package:commons/src/screens/widget_view_screen.dart';
+export 'package:commons/src/screens/list_view_screen.dart';
 export 'package:commons/src/validators/validator.dart';
 export 'package:commons/src/functions/try_catch.dart';
 export 'package:commons/src/functions/date_time.dart';

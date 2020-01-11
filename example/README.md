@@ -6,6 +6,8 @@
 import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
 
+import 'data_model.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -105,22 +107,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 print("${now.toTimeString()}");
                 print("${now.toDateTimeString()}");
                 print("${now.toDateTimeWithMillisecondsString()}");
-                print("sqlDateFormat: ${DateTimeAPI.sqlDateFormat(DateTime.now())}");
-                print("sqlDateTimeFormat: ${DateTimeAPI.sqlDateTimeFormat(DateTime.now())}");
-                print("sqlStartDateTimeFormat: ${DateTimeAPI.sqlStartDateTimeFormat(DateTime.now())}");
-                print("sqlEndDateTimeFormat: ${DateTimeAPI.sqlEndDateTimeFormat(DateTime.now())}");
-                print("formatDateOnly: ${DateTimeAPI.formatDateOnly(DateTime.now())}");
-                print("formatTimeOnly: ${DateTimeAPI.formatTimeOnly(DateTime.now())}");
-                print("formatDateTime: ${DateTimeAPI.formatDateTime(DateTime.now())}");
+                print(
+                    "sqlDateFormat: ${DateTimeAPI.sqlDateFormat(DateTime.now())}");
+                print(
+                    "sqlDateTimeFormat: ${DateTimeAPI.sqlDateTimeFormat(DateTime.now())}");
+                print(
+                    "sqlStartDateTimeFormat: ${DateTimeAPI.sqlStartDateTimeFormat(DateTime.now())}");
+                print(
+                    "sqlEndDateTimeFormat: ${DateTimeAPI.sqlEndDateTimeFormat(DateTime.now())}");
+                print(
+                    "formatDateOnly: ${DateTimeAPI.formatDateOnly(DateTime.now())}");
+                print(
+                    "formatTimeOnly: ${DateTimeAPI.formatTimeOnly(DateTime.now())}");
+                print(
+                    "formatDateTime: ${DateTimeAPI.formatDateTime(DateTime.now())}");
                 print("lastDateOfMonth: ${DateTimeAPI.lastDateOfMonth()}");
                 print("firstDateOfMonth: ${DateTimeAPI.firstDateOfMonth()}");
-                print("add: ${DateTimeAPI.add(DateTime.now(), Duration(days: 5))}");
-                print("subtract: ${DateTimeAPI.subtract(DateTime.now(), Duration(days: 5))}");
+                print(
+                    "add: ${DateTimeAPI.add(DateTime.now(), Duration(days: 5))}");
+                print(
+                    "subtract: ${DateTimeAPI.subtract(DateTime.now(), Duration(days: 5))}");
                 print("addDay: ${DateTimeAPI.addDay(DateTime.now(), 5)}");
-                print("subtractDay: ${DateTimeAPI.subtractDay(DateTime.now(), 5)}");
+                print(
+                    "subtractDay: ${DateTimeAPI.subtractDay(DateTime.now(), 5)}");
                 print("addMonth: ${DateTimeAPI.addMonth(DateTime.now(), 1)}");
-                print("subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
-                print("difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
+                print(
+                    "subtractMonth: ${DateTimeAPI.subtractMonth(DateTime.now(), 1)}");
+                print(
+                    "difference: ${DateTimeAPI.difference(DateTime.now(), DateTime.now() + Duration(days: 5)).inDays}");
 
                 print("Numbers");
                 int i = 123456;
@@ -167,7 +181,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                confirmationDialog(context, "Confirm demo dialog", positiveText: "Delete", positiveAction: () {});
+                confirmationDialog(context, "Confirm demo dialog",
+                    positiveText: "Delete", positiveAction: () {});
               },
               title: Text("Confirm Dialog"),
             ),
@@ -204,15 +219,95 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
+                List<Data> list = List()
+                  ..add(Data(1, "First", "sub title"))
+                  ..add(Data(2, "Second", "sub title"))
+                  ..add(Data(3, "Third", "sub title"))
+                  ..add(Data(4, "Forth", "sub title"));
+                push(
+                  context,
+                  ListViewScreen(
+                    "List View Example",
+                    list,
+                    (item, index, searchValue) {
+                      return Card(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        elevation: 1,
+                        child: ListTile(
+                          onTap: () {
+                            pop(context);
+                            print("$item at index $index");
+                          },
+                          title: highlightTitleTextWidget(
+                              context, item.title, searchValue),
+                        ),
+                      );
+                    },
+                    searchCriteria: (item, text) => item.title.contains(text),
+                  ),
+                );
+              },
+              title: Text("List View Screen"),
+            ),
+            ListTile(
+              onTap: () {
                 tryCatch(context, this, () {
                   throw Exception("throw exception manully...");
                 });
+//                try {
+//                  throw Exception("throw exception manully...");
+//                } on Exception catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } on Error catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                } catch (e, s) {
+//                  push(
+//                    context,
+//                    StackTraceScreen(
+//                      className: runtimeType.toString(),
+//                      stackTrace: "$s",
+//                      errorMessage: "$e",
+//                      mailTo: "arbaz.mateen@softagics.com",
+//                      shareButton: true,
+//                      deviceInfo: true,
+//                      subject: "Stack Trace",
+//                    ),
+//                  );
+//                }
               },
               title: Text("Stack Trace Screen"),
             ),
             ListTile(
               onTap: () {
-                var options = List<Option>()..add(Option.edit())..add(Option.view())..add(Option.details())..add(Option.delete())..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
+                var options = List<Option>()
+                  ..add(Option.edit())
+                  ..add(Option.view())
+                  ..add(Option.details())
+                  ..add(Option.delete())
+                  ..add(Option.item(Text("Custom"), icon: Icon(Icons.details)));
                 optionsDialog(context, "Options", options);
               },
               title: Text("Options Dialog"),
@@ -272,6 +367,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               title: Text("Device Info Dialog"),
             ),
+//            ListTile(
+//              leading: Image.asset("assets/images/empty.png", package: "commons", ),
+//              title: Text("Commons assets test"),
+//            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

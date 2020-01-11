@@ -1,6 +1,8 @@
 import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
 
+import 'data_model.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -212,6 +214,39 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
+                List<Data> list = List()
+                  ..add(Data(1, "First", "sub title"))
+                  ..add(Data(2, "Second", "sub title"))
+                  ..add(Data(3, "Third", "sub title"))
+                  ..add(Data(4, "Forth", "sub title"));
+                push(
+                  context,
+                  ListViewScreen(
+                    "List View Example",
+                    list,
+                    (item, index, searchValue) {
+                      return Card(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                        elevation: 1,
+                        child: ListTile(
+                          onTap: () {
+                            pop(context);
+                            print("$item at index $index");
+                          },
+                          title: highlightTitleTextWidget(
+                              context, item.title, searchValue),
+                        ),
+                      );
+                    },
+                    searchCriteria: (item, text) => item.title.contains(text),
+                  ),
+                );
+              },
+              title: Text("List View Screen"),
+            ),
+            ListTile(
+              onTap: () {
                 tryCatch(context, this, () {
                   throw Exception("throw exception manully...");
                 });
@@ -327,6 +362,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               title: Text("Device Info Dialog"),
             ),
+//            ListTile(
+//              leading: Image.asset("assets/images/empty.png", package: "commons", ),
+//              title: Text("Commons assets test"),
+//            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
