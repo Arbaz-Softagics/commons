@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class ListViewScreen<T> extends StatefulWidget {
   final String title;
   final List<T> items;
-  final Widget Function(T, int, String) bindItemView;
+  final Widget Function(T, int, String) bindViewItem;
   final bool Function(T, String) searchCriteria;
 
-  ListViewScreen(this.title, this.items, this.bindItemView,
+  ListViewScreen(this.title, this.items, this.bindViewItem,
       {this.searchCriteria});
 
   @override
@@ -52,7 +52,7 @@ class _ListViewScreenState<T> extends State<ListViewScreen> {
               itemCount: _filteredList.length,
               itemBuilder: (context, index) {
                 var item = _filteredList[index];
-                return widget.bindItemView(item, index, _searchableText);
+                return widget.bindViewItem(item, index, _searchableText);
               },
             ),
           ),

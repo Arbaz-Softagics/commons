@@ -37,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _connected = false;
   var listener;
   String singleInput = "";
-
+  Set<SimpleItem> _selectedItems = Set();
+  
   _checkInternet() async {
     listener = await ConnectionChecker()
         .getInstance()
@@ -194,6 +195,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   positiveAction: (value) {
                     print("Submit: $value");
+                    setState(() {
+                      singleInput = value;
+                    });
                   },
                   negativeAction: () {
                     print("negative action");
@@ -214,11 +218,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                List<Data> list = List()
-                  ..add(Data(1, "First", "sub title"))
-                  ..add(Data(2, "Second", "sub title"))
-                  ..add(Data(3, "Third", "sub title"))
-                  ..add(Data(4, "Forth", "sub title"));
+                List<SimpleItem> list = List()
+                  ..add(SimpleItem(1, "First", remarks: "sub title"))
+                  ..add(SimpleItem(2, "Second", remarks: "sub title"))
+                  ..add(SimpleItem(3, "Third", remarks: "sub title"))
+                  ..add(SimpleItem(4, "Forth", remarks: "sub title"));
                 push(
                   context,
                   ListViewScreen(
@@ -309,6 +313,53 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
+                var list = Set<SimpleItem>()
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"));
+                singleSelectDialog(context, "Select Option", list, (item) {
+                  print(item);
+                });
+              },
+              title: Text("Single select dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                Set<SimpleItem> list = Set()
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"));
+                multiSelectDialog(context, "Select Option", list, _selectedItems, (values) {
+                  setState(() {
+                    _selectedItems = values;
+                  });
+                  print(values);
+                },);
+              },
+              title: Text("Multi select dialog"),
+            ),
+            ListTile(
+              onTap: () {
                 successToast("Success toast");
               },
               title: Text("Success toast"),
@@ -361,8 +412,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               title: Text("Device Info Dialog"),
-            ),
-//            ListTile(
+            ), //            ListTile(
 //              leading: Image.asset("assets/images/empty.png", package: "commons", ),
 //              title: Text("Commons assets test"),
 //            ),

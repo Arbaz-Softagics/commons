@@ -76,28 +76,36 @@ class _OptionsDialogState extends State<OptionsDialog> {
   }
 
   _dialogContent(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            widget.title,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
           ),
-          Divider(
-            color: Colors.black,
-            height: 5,
+        ),
+        Divider(
+          color: Colors.black,
+          height: 5,
+        ),
+        Flexible(
+          fit: FlexFit.loose,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ..._options(),
+              ],
+            ),
           ),
-          ..._options(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
