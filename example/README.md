@@ -6,8 +6,6 @@
 import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
 
-import 'data_model.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -42,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _connected = false;
   var listener;
   String singleInput = "";
+  Set<SimpleItem> _selectedItems = Set();
 
   _checkInternet() async {
     listener = await ConnectionChecker()
@@ -199,6 +198,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   positiveAction: (value) {
                     print("Submit: $value");
+                    setState(() {
+                      singleInput = value;
+                    });
                   },
                   negativeAction: () {
                     print("negative action");
@@ -219,11 +221,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                List<Data> list = List()
-                  ..add(Data(1, "First", "sub title"))
-                  ..add(Data(2, "Second", "sub title"))
-                  ..add(Data(3, "Third", "sub title"))
-                  ..add(Data(4, "Forth", "sub title"));
+                List<SimpleItem> list = List()
+                  ..add(SimpleItem(1, "First", remarks: "sub title"))
+                  ..add(SimpleItem(2, "Second", remarks: "sub title"))
+                  ..add(SimpleItem(3, "Third", remarks: "sub title"))
+                  ..add(SimpleItem(4, "Forth", remarks: "sub title"));
                 push(
                   context,
                   ListViewScreen(
@@ -255,48 +257,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 tryCatch(context, this, () {
                   throw Exception("throw exception manully...");
                 });
-//                try {
-//                  throw Exception("throw exception manully...");
-//                } on Exception catch (e, s) {
-//                  push(
-//                    context,
-//                    StackTraceScreen(
-//                      className: runtimeType.toString(),
-//                      stackTrace: "$s",
-//                      errorMessage: "$e",
-//                      mailTo: "arbaz.mateen@softagics.com",
-//                      shareButton: true,
-//                      deviceInfo: true,
-//                      subject: "Stack Trace",
-//                    ),
-//                  );
-//                } on Error catch (e, s) {
-//                  push(
-//                    context,
-//                    StackTraceScreen(
-//                      className: runtimeType.toString(),
-//                      stackTrace: "$s",
-//                      errorMessage: "$e",
-//                      mailTo: "arbaz.mateen@softagics.com",
-//                      shareButton: true,
-//                      deviceInfo: true,
-//                      subject: "Stack Trace",
-//                    ),
-//                  );
-//                } catch (e, s) {
-//                  push(
-//                    context,
-//                    StackTraceScreen(
-//                      className: runtimeType.toString(),
-//                      stackTrace: "$s",
-//                      errorMessage: "$e",
-//                      mailTo: "arbaz.mateen@softagics.com",
-//                      shareButton: true,
-//                      deviceInfo: true,
-//                      subject: "Stack Trace",
-//                    ),
-//                  );
-//                }
               },
               title: Text("Stack Trace Screen"),
             ),
@@ -311,6 +271,50 @@ class _MyHomePageState extends State<MyHomePage> {
                 optionsDialog(context, "Options", options);
               },
               title: Text("Options Dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                var list = Set<SimpleItem>()
+                  ..add(SimpleItem(1, "Version 1.0"))
+                  ..add(SimpleItem(1, "Version 2.0"))
+                  ..add(SimpleItem(1, "Version 3.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"));
+                singleSelectDialog(context, "Single Select", list, (item) {
+                  print(item);
+                });
+              },
+              title: Text("Single select dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                Set<SimpleItem> list = Set()
+                  ..add(SimpleItem(1, "Version 1.0"))
+                  ..add(SimpleItem(1, "Version 2.0"))
+                  ..add(SimpleItem(1, "Version 3.0"))
+                  ..add(SimpleItem(1, "Version 4.0"))
+                  ..add(SimpleItem(2, "Version 5.0"))
+                  ..add(SimpleItem(3, "Version 6.0"))
+                  ..add(SimpleItem(4, "Version 7.0"))
+                  ..add(SimpleItem(4, "Version 8.0"))
+                  ..add(SimpleItem(4, "Version 9.0"))
+                  ..add(SimpleItem(4, "Version 10.0"));
+                multiSelectDialog(
+                  context,
+                  "Multi Selects",
+                  list,
+                  _selectedItems,
+                  (values) {
+                    setState(() {
+                      _selectedItems = values;
+                    });
+                    print(values);
+                  },
+                );
+              },
+              title: Text("Multi select dialog"),
             ),
             ListTile(
               onTap: () {
@@ -367,10 +371,6 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               title: Text("Device Info Dialog"),
             ),
-//            ListTile(
-//              leading: Image.asset("assets/images/empty.png", package: "commons", ),
-//              title: Text("Commons assets test"),
-//            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

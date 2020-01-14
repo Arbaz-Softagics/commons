@@ -1,3 +1,8 @@
+## [0.5.2] - Selection Dialogs
+
+* Added: Single select dialog
+* Added: Multi select dialog
+
 ## [0.5.1] - List View Screen
 
 * Added: List view screen with search field

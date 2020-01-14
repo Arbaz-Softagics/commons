@@ -1,8 +1,6 @@
 import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
 
-import 'data_model.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -38,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var listener;
   String singleInput = "";
   Set<SimpleItem> _selectedItems = Set();
-  
+
   _checkInternet() async {
     listener = await ConnectionChecker()
         .getInstance()
@@ -314,20 +312,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               onTap: () {
                 var list = Set<SimpleItem>()
+                  ..add(SimpleItem(1, "Version 1.0"))
+                  ..add(SimpleItem(1, "Version 2.0"))
+                  ..add(SimpleItem(1, "Version 3.0"))
                   ..add(SimpleItem(1, "Version 4.0"))
                   ..add(SimpleItem(2, "Version 5.0"))
-                  ..add(SimpleItem(3, "Version 6.0"))
-                  ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
-                  ..add(SimpleItem(2, "Version 5.0"))
-                  ..add(SimpleItem(3, "Version 6.0"))
-                  ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
-                  ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
                   ..add(SimpleItem(3, "Version 6.0"))
                   ..add(SimpleItem(4, "Version 7.0"));
-                singleSelectDialog(context, "Select Option", list, (item) {
+                singleSelectDialog(context, "Single Select", list, (item) {
                   print(item);
                 });
               },
@@ -336,25 +328,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               onTap: () {
                 Set<SimpleItem> list = Set()
+                  ..add(SimpleItem(1, "Version 1.0"))
+                  ..add(SimpleItem(1, "Version 2.0"))
+                  ..add(SimpleItem(1, "Version 3.0"))
                   ..add(SimpleItem(1, "Version 4.0"))
                   ..add(SimpleItem(2, "Version 5.0"))
                   ..add(SimpleItem(3, "Version 6.0"))
                   ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
-                  ..add(SimpleItem(2, "Version 5.0"))
-                  ..add(SimpleItem(3, "Version 6.0"))
-                  ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
-                  ..add(SimpleItem(4, "Version 7.0"))
-                  ..add(SimpleItem(1, "Version 4.0"))
-                  ..add(SimpleItem(3, "Version 6.0"))
-                  ..add(SimpleItem(4, "Version 7.0"));
-                multiSelectDialog(context, "Select Option", list, _selectedItems, (values) {
-                  setState(() {
-                    _selectedItems = values;
-                  });
-                  print(values);
-                },);
+                  ..add(SimpleItem(4, "Version 8.0"))
+                  ..add(SimpleItem(4, "Version 9.0"))
+                  ..add(SimpleItem(4, "Version 10.0"));
+                multiSelectDialog(
+                  context,
+                  "Multi Selects",
+                  list,
+                  _selectedItems,
+                  (values) {
+                    setState(() {
+                      _selectedItems = values;
+                    });
+                    print(values);
+                  },
+                );
               },
               title: Text("Multi select dialog"),
             ),

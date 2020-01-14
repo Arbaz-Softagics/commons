@@ -7,7 +7,11 @@ abstract class Data {
 
   @override
   bool operator ==(Object other) {
-    return (identical(this, other) || other is Data && runtimeType == other.runtimeType && id == other.id && title == other.title);
+    return (identical(this, other) ||
+        other is Data &&
+            runtimeType == other.runtimeType &&
+            id == other.id &&
+            title == other.title);
   }
 
   @override
@@ -28,7 +32,8 @@ class SimpleItem extends Data {
   bool selected;
   final String remarks;
 
-  SimpleItem(this.id, this.title, {this.selected = false, this.remarks = ""}) : super(id, title, selected);
+  SimpleItem(this.id, this.title, {this.selected = false, this.remarks = ""})
+      : super(id, title, selected);
 
   factory SimpleItem.fromJson(Map<String, dynamic> json) {
     return SimpleItem(

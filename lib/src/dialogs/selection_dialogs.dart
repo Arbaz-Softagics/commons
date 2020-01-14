@@ -40,7 +40,7 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
             value: _selectedItems.contains(data),
             onChanged: (value) {
               setState(() {
-                data.selected = !data.selected;
+                data.selected = value;
               });
               if (data.selected) {
                 _selectedItems.add(data);
@@ -48,14 +48,16 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
                 _selectedItems.remove(data);
               }
             },
-            title: highlightTitleTextWidget(context, "${data.title}", _searchQuery),
+            title: highlightTitleTextWidget(
+                context, "${data.title}", _searchQuery),
           )
         : ListTile(
             onTap: () {
               pop(context);
               widget.onSubmit(data);
             },
-            title: highlightTitleTextWidget(context, "${data.title}", _searchQuery),
+            title: highlightTitleTextWidget(
+                context, "${data.title}", _searchQuery),
           );
   }
 
@@ -89,7 +91,11 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
                         });
                         if (value != null && value.isNotEmpty) {
                           setState(() {
-                            _filteredList = widget.items.where((item) => item.title.toLowerCase().contains(_searchQuery.toLowerCase())).toSet();
+                            _filteredList = widget.items
+                                .where((item) => item.title
+                                    .toLowerCase()
+                                    .contains(_searchQuery.toLowerCase()))
+                                .toSet();
                           });
                         } else {
                           setState(() {
@@ -120,7 +126,8 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
 
                   delay(Duration(milliseconds: 100), () {
                     if (_showSearchField) {
-                      FocusScope.of(context).requestFocus(_searchBarFieldFocusNode);
+                      FocusScope.of(context)
+                          .requestFocus(_searchBarFieldFocusNode);
                     } else {
                       FocusScope.of(context).requestFocus(FocusNode());
                     }
@@ -156,34 +163,36 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
           height: 5,
         ),
         _filteredList.isEmpty
-            ? AnimatedContainer(
-                duration: Duration(milliseconds: 1000),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 64,
-                    ),
-                    Image.asset(
-                      "assets/images/empty.png",
-                      package: "commons",
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                    ),
-                    Text(
-                      "Empty Collections",
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 64,
-                    ),
-                  ],
+            ? Expanded(
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 1000),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 64,
+                      ),
+                      Image.asset(
+                        "assets/images/empty.png",
+                        package: "commons",
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                      ),
+                      Text(
+                        "Empty Collections",
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 64,
+                      ),
+                    ],
+                  ),
                 ),
               )
             : AnimatedContainer(
                 duration: Duration(milliseconds: 1000),
                 child: Flexible(
-                  fit: FlexFit.loose,
+                  fit: FlexFit.tight,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -195,9 +204,32 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
                 ),
               ),
         if (widget.multiSelect)
+          Divider(
+            color: Colors.black,
+            height: 5,
+          ),
+        if (widget.multiSelect)
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  setState(() {
+                    _filteredList.forEach((item) => item.selected = false);
+                    _selectedItems.clear();
+                  });
+                },
+                child: Text("Un-Select All"),
+              ),
+              FlatButton(
+                onPressed: () {
+                  setState(() {
+                    _filteredList.forEach((item) => item.selected = true);
+                    _selectedItems.addAll(_filteredList);
+                  });
+                },
+                child: Text("Select All"),
+              ),
               FlatButton(
                 onPressed: () {
                   if (widget.onSubmit != null) widget.onSubmit(_selectedItems);
