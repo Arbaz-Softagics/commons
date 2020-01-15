@@ -22,11 +22,7 @@ Future<String> getPackageInfo() async {
   _info += "Package Name: ${packageInfo.packageName}\n";
   _info += "Version: ${packageInfo.version}\n";
   _info += "Build Number: ${packageInfo.buildNumber}\n";
-  if (Platform.isAndroid) {
-    _info += "Running On: Android $platformVersion";
-  } else {
-    _info += "Running On: IOS $platformVersion";
-  }
+  _info += "Running On: $platformVersion";
 
   return _info;
 }
@@ -44,7 +40,7 @@ Future<String> getDeviceInfo() async {
     _info += "Package Name: ${packageInfo.packageName}\n";
     _info += "Version: ${packageInfo.version}\n";
     _info += "Build Number: ${packageInfo.buildNumber}\n";
-    _info += "Running On: Android $platformVersion\n\n";
+    _info += "Running On: $platformVersion\n\n";
 
     _info += "ANDROID DEVICE INFO\n";
     _info += "AndroidId: ${androidInfo.androidId}\n";
