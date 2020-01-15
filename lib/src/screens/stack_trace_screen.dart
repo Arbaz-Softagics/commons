@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:commons/commons.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
+import 'package:get_version/get_version.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -138,6 +139,7 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      String platformVersion = await GetVersion.platformVersion;
 
       setState(() {
         _info += "ANDROID DEVICE INFO\n";
@@ -161,7 +163,7 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
         _info += "Tags: ${androidInfo.tags}\n";
         _info += "Type: ${androidInfo.type}\n\n";
         _info += "VERSION\n";
-        _info += "Android OS: ${androidInfo.version.baseOS}\n";
+        _info += "Android OS: ${androidInfo.version.baseOS} $platformVersion\n";
         _info += "Code Name: ${androidInfo.version.codename}\n";
         _info += "Incremental: ${androidInfo.version.incremental}\n";
         _info += "Preview Sdk Int: ${androidInfo.version.previewSdkInt}\n";
@@ -171,6 +173,7 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
       });
     } else {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      String platformVersion = await GetVersion.platformVersion;
 
       setState(() {
         _info += "APPLE DEVICE INFO\n";
@@ -180,7 +183,7 @@ class _StackTraceScreenState extends State<StackTraceScreen> {
         _info += "Model: ${iosInfo.model}\n";
         _info += "Name: ${iosInfo.name}\n";
         _info += "SystemName: ${iosInfo.systemName}\n";
-        _info += "SystemVersion: ${iosInfo.systemVersion}\n";
+        _info += "SystemVersion: ${iosInfo.systemVersion} $platformVersion\n";
         _info += "Utsname.Machine: ${iosInfo.utsname.machine}\n";
         _info += "Utsname.Nodename: ${iosInfo.utsname.nodename}\n";
         _info += "Utsname.Release: ${iosInfo.utsname.release}\n";
