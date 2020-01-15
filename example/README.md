@@ -318,6 +318,23 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
+                Set<SimpleItem> set = Set<SimpleItem>()
+                  ..add(SimpleItem(1, "One"))
+                  ..add(SimpleItem(2, "Two"))
+                  ..add(SimpleItem(3, "Three"));
+                radioListDialog(
+                  context,
+                  "Select one",
+                  set,
+                  (item) {
+                    print(item);
+                  },
+                );
+              },
+              title: Text("Radio list dialog"),
+            ),
+            ListTile(
+              onTap: () {
                 successToast("Success toast");
               },
               title: Text("Success toast"),
@@ -370,7 +387,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               title: Text("Device Info Dialog"),
-            ),
+            ), //            ListTile(
+//              leading: Image.asset("assets/images/empty.png", package: "commons", ),
+//              title: Text("Commons assets test"),
+//            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
