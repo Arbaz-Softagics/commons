@@ -1,3 +1,7 @@
+## [0.5.4] - Minor changes
+
+* Minor changes (Radio list dialog)
+
 ## [0.5.3] - Radio list Dialog
 
 * Added: Radio list dialog

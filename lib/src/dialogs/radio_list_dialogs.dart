@@ -2,11 +2,11 @@ import 'package:commons/src/functions/navigation_functions.dart';
 import 'package:commons/src/models/models.dart';
 import 'package:flutter/material.dart';
 
-class __RadioListDialog extends StatefulWidget {
+class __RadioListDialog<T extends Data> extends StatefulWidget {
   final String title;
-  final Set<SimpleItem> dataSet;
+  final Set<T> dataSet;
   final Data selectedItem;
-  final Function(SimpleItem) onSubmit;
+  final Function(T) onSubmit;
 
   __RadioListDialog(
     this.title,
@@ -16,14 +16,14 @@ class __RadioListDialog extends StatefulWidget {
   });
 
   @override
-  ___RadioListDialogState createState() => ___RadioListDialogState();
+  ___RadioListDialogState createState() => ___RadioListDialogState<T>();
 }
 
-class ___RadioListDialogState extends State<__RadioListDialog> {
-  SimpleItem _selectedItem;
+class ___RadioListDialogState<T extends Data> extends State<__RadioListDialog> {
+  T _selectedItem;
   int _radioGroupId = 0;
 
-  _optionItem(BuildContext context, SimpleItem data) {
+  _optionItem(BuildContext context, T data) {
     return RadioListTile(
       groupValue: _radioGroupId,
       onChanged: (value) {
@@ -119,11 +119,11 @@ class ___RadioListDialogState extends State<__RadioListDialog> {
   }
 }
 
-radioListDialog(
+radioListDialog<T extends Data>(
   BuildContext context,
   String title,
-  Set<SimpleItem> dataSet,
-  Function(SimpleItem) onSubmit, {
+  Set<T> dataSet,
+  Function(T) onSubmit, {
   Data selectedItem,
   autoClose = true,
 }) {

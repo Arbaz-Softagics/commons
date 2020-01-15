@@ -29,7 +29,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.5.3
+  commons: ^0.5.4
 ```
 
 ### 2. Install it
@@ -61,6 +61,7 @@ import 'package:commons/commons.dart';
 - option dialog
 - Single select dialog
 - Multi select dialog
+- Radio list dialog
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/Arbaz-Softagics/commons/master/screenshots/success.png" width="240">
