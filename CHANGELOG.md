@@ -1,3 +1,7 @@
+## [0.5.5] - Bugs Fixes
+
+* Minor bugs fixes
+
 ## [0.5.4] - Minor changes
 
 * Minor changes (Radio list dialog)
