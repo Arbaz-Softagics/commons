@@ -3,8 +3,8 @@
 Commons Flutter package can used for Flutter **Android** and **IOS** applications.
  
  **Includes**
- - [Alert dialog](#Dialogs)
- - [Toast messages](#Toasts)
+ - Alert dialog
+ - Toast messages
  - Single input dialog
  - Single select dialog
  - Multi select dialog
@@ -29,7 +29,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.5.5
+  commons: ^0.5.7
 ```
 
 ### 2. Install it
