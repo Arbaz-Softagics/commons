@@ -15,6 +15,7 @@ class __AlertDialog extends StatefulWidget {
   static const WARNING_ICON = 3;
   static const INFO_ICON = 4;
   static const HELP_ICON = 5;
+  static const WIFI_OFF_ICON = 6;
 
   final Color color;
   final String title, message, positiveText, negativeText, neutralText;
@@ -73,6 +74,12 @@ class __AlertDialogState extends State<__AlertDialog> {
 
   final confirmIcon = Icon(
     Icons.help_outline,
+    size: 64,
+    color: Colors.white,
+  );
+
+  final wifiOffIcon = Icon(
+    Icons.perm_scan_wifi,
     size: 64,
     color: Colors.white,
   );
@@ -169,6 +176,9 @@ class __AlertDialogState extends State<__AlertDialog> {
         break;
       case __AlertDialog.HELP_ICON:
         _dialogIcon = confirmIcon;
+        break;
+      case __AlertDialog.WIFI_OFF_ICON:
+        _dialogIcon = wifiOffIcon;
         break;
     }
 

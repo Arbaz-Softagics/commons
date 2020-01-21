@@ -1,3 +1,7 @@
+## [0.5.8] - WIFI Icon
+
+* Added wifi off icon on error dialog icons for no internet connectivity
+
 ## [0.5.7] - Minor Changes
 
 * Minor Changes
