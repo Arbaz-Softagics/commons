@@ -2,6 +2,15 @@
 
 import 'package:flutter/material.dart';
 
+enum AlertDialogIcon {
+  SUCCESS_ICON,
+  ERROR_ICON,
+  WARNING_ICON,
+  INFO_ICON,
+  HELP_ICON,
+  WIFI_OFF_ICON,
+}
+
 /// Private class __AlertDialog
 /// cannot use
 class __AlertDialog extends StatefulWidget {
@@ -10,18 +19,11 @@ class __AlertDialog extends StatefulWidget {
   static const ERROR = Color(0xffc0392b);
   static const INFO = Color(0xff3c3f41);
 
-  static const SUCCESS_ICON = 1;
-  static const ERROR_ICON = 2;
-  static const WARNING_ICON = 3;
-  static const INFO_ICON = 4;
-  static const HELP_ICON = 5;
-  static const WIFI_OFF_ICON = 6;
-
   final Color color;
   final String title, message, positiveText, negativeText, neutralText;
   final Function positiveAction, negativeAction, neutralAction;
   final bool showNeutralButton;
-  final int icon;
+  final AlertDialogIcon icon;
   final bool confirm;
   final TextAlign textAlign;
 
@@ -162,22 +164,22 @@ class __AlertDialogState extends State<__AlertDialog> {
     _dialogIcon = confirmIcon;
 
     switch (widget.icon) {
-      case __AlertDialog.SUCCESS_ICON:
+      case AlertDialogIcon.SUCCESS_ICON:
         _dialogIcon = successIcon;
         break;
-      case __AlertDialog.ERROR_ICON:
+      case AlertDialogIcon.ERROR_ICON:
         _dialogIcon = errorIcon;
         break;
-      case __AlertDialog.WARNING_ICON:
+      case AlertDialogIcon.WARNING_ICON:
         _dialogIcon = warningIcon;
         break;
-      case __AlertDialog.INFO_ICON:
+      case AlertDialogIcon.INFO_ICON:
         _dialogIcon = infoIcon;
         break;
-      case __AlertDialog.HELP_ICON:
+      case AlertDialogIcon.HELP_ICON:
         _dialogIcon = confirmIcon;
         break;
-      case __AlertDialog.WIFI_OFF_ICON:
+      case AlertDialogIcon.WIFI_OFF_ICON:
         _dialogIcon = wifiOffIcon;
         break;
     }
@@ -295,7 +297,7 @@ dialog(
   Function positiveAction,
   String negativeText,
   Function negativeAction,
-  icon = 0,
+  icon = AlertDialogIcon.SUCCESS_ICON,
   confirm = false,
   textAlign: TextAlign.center,
 }) {
@@ -336,7 +338,7 @@ successDialog(
   Function neutralAction,
   title = "Success",
   closeOnBackPress = true,
-  icon = __AlertDialog.SUCCESS_ICON,
+  icon = AlertDialogIcon.SUCCESS_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
@@ -370,7 +372,7 @@ errorDialog(
   Function neutralAction,
   title = "Error",
   closeOnBackPress = false,
-  icon = __AlertDialog.ERROR_ICON,
+  icon = AlertDialogIcon.ERROR_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
@@ -404,7 +406,7 @@ warningDialog(
   Function neutralAction,
   title = "Warning",
   closeOnBackPress = false,
-  icon = __AlertDialog.WARNING_ICON,
+  icon = AlertDialogIcon.WARNING_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
@@ -438,7 +440,7 @@ infoDialog(
   Function neutralAction,
   title = "Info",
   closeOnBackPress = false,
-  icon = __AlertDialog.INFO_ICON,
+  icon = AlertDialogIcon.INFO_ICON,
   textAlign: TextAlign.center,
 }) {
   return dialog(
@@ -472,7 +474,7 @@ confirmationDialog(
   Function neutralAction,
   title = "Confirmation?",
   closeOnBackPress = false,
-  icon = __AlertDialog.HELP_ICON,
+  icon = AlertDialogIcon.HELP_ICON,
   confirm: true,
   textAlign: TextAlign.center,
 }) {
