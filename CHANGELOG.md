@@ -1,3 +1,7 @@
+## [0.6.0] - TextEditingController Extensions Function
+
+* Add extension functions getText, getInt, getDouble with default value return if error
+
 ## [0.5.9] - Changes
 
 * Minor Changes

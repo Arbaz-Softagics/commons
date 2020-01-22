@@ -35,6 +35,21 @@ extension TextEditingControllerExtension on TextEditingController {
       }
     });
   }
+  
+  String getText({String defaultText = ""}) {
+    String value = this.text.trim();
+    return value.isEmpty ? defaultText : value;
+  }
+  
+  int getInt({int defaultInteger = 0}) {
+    String value = this.text.trim();
+    return value.isEmpty ? defaultInteger : int.tryParse(value) ?? defaultInteger;
+  }
+  
+  double getDouble({double defaultDouble = 0.0}) {
+    String value = this.text.trim();
+    return value.isEmpty ? defaultDouble : double.tryParse(value) ?? defaultDouble;
+  }
 }
 
 /// select all text on focus
