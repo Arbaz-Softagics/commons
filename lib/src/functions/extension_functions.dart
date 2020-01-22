@@ -23,6 +23,14 @@ extension StringExtensions on String {
     });
     return capitalized.join(' ').trim();
   }
+  
+  int toInt({int defaultValue = 0}) {
+    return int.tryParse(this.trim()) ?? defaultValue;
+  }
+  
+  double toDouble({double defaultValue = 0.0}) {
+    return double.tryParse(this.trim()) ?? defaultValue;
+  }
 }
 
 /// TextEditingController extension functions

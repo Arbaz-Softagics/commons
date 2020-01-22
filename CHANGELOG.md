@@ -1,3 +1,7 @@
+## [0.6.1] - String Extensions Function
+
+* Add string extension functions toInt, toDouble
+
 ## [0.6.0] - TextEditingController Extensions Function
 
 * Add extension functions getText, getInt, getDouble with default value return if error

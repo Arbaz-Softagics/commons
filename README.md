@@ -29,7 +29,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.6.0
+  commons: ^0.6.1
 ```
 
 ### 2. Install it
