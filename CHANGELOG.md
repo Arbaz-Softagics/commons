@@ -1,3 +1,7 @@
+## [0.6.3] - Bug fixed
+
+* Minor bug fixes
+
 ## [0.6.2] - Data Class
 
 * Data class is no more abstract

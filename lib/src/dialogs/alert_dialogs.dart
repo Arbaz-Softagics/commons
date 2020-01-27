@@ -275,7 +275,7 @@ class __AlertDialogState extends State<__AlertDialog> {
           child: CircleAvatar(
             backgroundColor: widget.color,
             radius: 55.0,
-            child: widget.icon == 0 ? Text("") : _dialogIcon,
+            child: widget.icon == null ? Text("") : _dialogIcon,
           ),
         ),
       ],
