@@ -1,3 +1,7 @@
+## [0.6.2] - Data Class
+
+* Data class is no more abstract
+
 ## [0.6.1] - String Extensions Function
 
 * Add string extension functions toInt, toDouble

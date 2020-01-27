@@ -1,4 +1,4 @@
-abstract class Data {
+class Data {
   final int id;
   final String title;
   bool selected;
