@@ -29,7 +29,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.6.3
+  commons: ^0.6.5
 ```
 
 ### 2. Install it
@@ -419,6 +419,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     positiveText: "Delete", positiveAction: () {});
               },
               title: Text("Confirm Dialog"),
+            ),
+            ListTile(
+              onTap: () {
+                dialog(context, Colors.pink, "Title", "Some message", false, true, customIcon: Icon(Icons.ac_unit, size: 64, color: Colors.white,),);
+              },
+              title: Text("Custom Dialog"),
             ),
             ListTile(
               onTap: () {

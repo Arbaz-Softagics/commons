@@ -187,6 +187,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
+                dialog(context, Colors.pink, "Title", "Some message", false, true, customIcon: Icon(Icons.ac_unit, size: 64, color: Colors.white,),);
+              },
+              title: Text("Custom Dialog"),
+            ),
+            ListTile(
+              onTap: () {
                 singleInputDialog(
                   context,
                   title: "Input Dialog",

@@ -23,9 +23,10 @@ class __AlertDialog extends StatefulWidget {
   final String title, message, positiveText, negativeText, neutralText;
   final Function positiveAction, negativeAction, neutralAction;
   final bool showNeutralButton;
-  final AlertDialogIcon icon;
+  final AlertDialogIcon alertDialogIcon;
   final bool confirm;
   final TextAlign textAlign;
+  final Widget customIcon;
 
   __AlertDialog({
     @required this.color,
@@ -38,7 +39,8 @@ class __AlertDialog extends StatefulWidget {
     this.positiveAction,
     this.negativeText,
     this.negativeAction,
-    this.icon,
+    this.alertDialogIcon,
+    this.customIcon,
     this.confirm,
     this.textAlign,
   });
@@ -163,7 +165,7 @@ class __AlertDialogState extends State<__AlertDialog> {
   _dialogContent(BuildContext context) {
     _dialogIcon = confirmIcon;
 
-    switch (widget.icon) {
+    switch (widget.alertDialogIcon) {
       case AlertDialogIcon.SUCCESS_ICON:
         _dialogIcon = successIcon;
         break;
@@ -275,7 +277,9 @@ class __AlertDialogState extends State<__AlertDialog> {
           child: CircleAvatar(
             backgroundColor: widget.color,
             radius: 55.0,
-            child: widget.icon == null ? Text("") : _dialogIcon,
+            child: widget.alertDialogIcon == null
+                ? widget.customIcon == null ? Text("") : widget.customIcon
+                : _dialogIcon,
           ),
         ),
       ],
@@ -297,9 +301,10 @@ dialog(
   Function positiveAction,
   String negativeText,
   Function negativeAction,
-  icon = AlertDialogIcon.SUCCESS_ICON,
+  AlertDialogIcon icon,
   confirm = false,
   textAlign: TextAlign.center,
+  Widget customIcon,
 }) {
   return showDialog(
     barrierDismissible: closeOnBackPress,
@@ -317,9 +322,10 @@ dialog(
         positiveAction: positiveAction,
         negativeText: negativeText,
         negativeAction: negativeAction,
-        icon: icon,
+        alertDialogIcon: icon,
         confirm: confirm,
         textAlign: textAlign,
+        customIcon: customIcon,
       ),
     ),
   );

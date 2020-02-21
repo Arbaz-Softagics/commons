@@ -1,3 +1,11 @@
+## [0.6.5] - Minor Changes
+
+* Minor Changes
+
+## [0.6.4] - Generic Dialog function
+
+* Dialog function for custom icon and custom circle color
+
 ## [0.6.3] - Bug fixed
 
 * Minor bug fixes
