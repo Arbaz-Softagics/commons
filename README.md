@@ -31,7 +31,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:  
-  commons: ^0.6.8
+  commons: ^0.6.9
 ```
 
 ### 2. Install it
@@ -241,24 +241,34 @@ push(
 
 ```dart
 import 'package:commons/commons.dart';
+import 'package:example/theme_changer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return OKToast(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Commons Example',
-        theme: ThemeData(
-          primarySwatch: Colors.teal,
-          primaryColorDark: Colors.teal[900],
-          accentColor: Colors.pink[600],
-        ),
-        home: MyHomePage(title: 'Commons Example'),
+    return ChangeNotifierProvider<ThemeChanger>(
+      create: (_) => ThemeChanger(ThemeData.light()),
+      child: OKToast(
+        child: MaterialAppWithTheme(),
       ),
+    );
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Commons Example',
+      theme: theme.getTheme(),
+      home: MyHomePage(title: 'Commons Example'),
     );
   }
 }
@@ -313,6 +323,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -320,6 +332,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
+            ListTile(
+              title: Text("Light Theme"),
+              onTap: () => _themeChanger.setTheme(ThemeData.light()),
+            ),
+            ListTile(
+              title: Text("Dark Theme"),
+              onTap: () => _themeChanger.setTheme(ThemeData.dark()),
+            ),
             ListTile(
               onTap: () {
                 checkInternet().then((connected) {
@@ -424,7 +444,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               onTap: () {
-                dialog(context, Colors.pink, "Title", "Some message", false, true, customIcon: Icon(Icons.ac_unit, size: 64, color: Colors.white,),);
+                dialog(
+                  context,
+                  Colors.pink,
+                  "Title",
+                  "Some message",
+                  false,
+                  true,
+                  customIcon: Icon(
+                    Icons.ac_unit,
+                    size: 64,
+                    color: Colors.white,
+                  ),
+                );
               },
               title: Text("Custom Dialog"),
             ),
@@ -434,6 +466,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   title: "Input Dialog",
                   label: "Name",
+                  value: singleInput,
                   errorText: "Required!",
                   validator: (value) {
                     print("Validator: $value");
@@ -630,10 +663,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               title: Text("Device Info Dialog"),
-            ), //            ListTile(
-//              leading: Image.asset("assets/images/empty.png", package: "commons", ),
-//              title: Text("Commons assets test"),
-//            ),
+            ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -641,7 +671,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
-
 # Documentation
 
 For help getting started with Commons, view our online [Documentation](https://pub.dev/documentation/commons/latest/).

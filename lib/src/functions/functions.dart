@@ -98,7 +98,7 @@ Future<String> getDeviceInfo() async {
   return _info;
 }
 
-/// highlight title text
+/// highlight title textfun
 Widget highlightTitleTextWidget(
   BuildContext context,
   String string,
@@ -107,7 +107,8 @@ Widget highlightTitleTextWidget(
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle = const TextStyle(color: Colors.black, fontSize: 16);
+    stringStyle =
+        TextStyle(color: Theme.of(context).textTheme.title.color, fontSize: 16);
   }
 
   if (wordStyle == null) {
@@ -144,7 +145,8 @@ Widget highlightSubTitleTextWidget(
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle = const TextStyle(color: Colors.black, fontSize: 16);
+    stringStyle = TextStyle(
+        color: Theme.of(context).textTheme.subtitle.color, fontSize: 16);
   }
 
   if (wordStyle == null) {

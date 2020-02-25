@@ -80,12 +80,13 @@ class _ListViewScreenState<T> extends State<ListViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:
-            _showSearchBar ? Colors.white : Theme.of(context).primaryColor,
+        backgroundColor: _showSearchBar
+            ? Theme.of(context).appBarTheme.color
+            : Theme.of(context).primaryColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: _showSearchBar ? Colors.grey : Colors.white,
+//            color: _showSearchBar ? Theme.of(context).accentIconTheme.color : Colors.white,
           ),
           onPressed: () {
             if (_showSearchBar) {
@@ -139,7 +140,7 @@ class _ListViewScreenState<T> extends State<ListViewScreen> {
           IconButton(
             icon: Icon(
               _showSearchBar ? Icons.clear : Icons.search,
-              color: _showSearchBar ? Colors.grey : Colors.white,
+//              color: _showSearchBar ? Theme.of(context).accentIconTheme.color : Colors.white,
             ),
             onPressed: () {
               if (_showSearchBar) {

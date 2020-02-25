@@ -1,3 +1,7 @@
+## [0.6.9] - Theme Support Available
+
+* Theme support added
+
 ## [0.6.8] - Bug fixed
 
 * Bugs fixes (Single input dialog)

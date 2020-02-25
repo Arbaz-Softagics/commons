@@ -1,4 +1,3 @@
-import 'package:commons/src/functions/functions.dart';
 import 'package:flutter/material.dart';
 
 /// Private __SingleInputDialog class
@@ -45,7 +44,7 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
   final _inputController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
   bool _validInput = true;
-  
+
   _validateInput() {
     if (widget.validator != null) {
       setState(() {
@@ -79,36 +78,38 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
       duration: Duration(milliseconds: 300),
       padding: MediaQuery.of(context).padding,
       child: AlertDialog(
+        backgroundColor: Theme.of(context).dialogBackgroundColor,
+        contentTextStyle: Theme.of(context).dialogTheme.contentTextStyle,
+        titleTextStyle: Theme.of(context).dialogTheme.titleTextStyle,
         contentPadding: EdgeInsets.all(16.0),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              widget.title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                widget.title,
+                style: Theme.of(context).dialogTheme.titleTextStyle,
               ),
-            ),
-            Divider(),
-            TextField(
-              obscureText: widget.obscure,
-              autofocus: true,
-              maxLines: widget.maxLines,
-              minLines: widget.minLines,
-              keyboardType: widget.keyboardType,
-              controller: _inputController,
-              focusNode: _focusNode,
-              textInputAction: TextInputAction.done,
-              onEditingComplete: _validateInput,
-              decoration: InputDecoration(
-                labelText: widget.label,
-                hintText: widget.value,
-                errorText: _validInput ? null : widget.errorText,
+              Divider(),
+              TextField(
+                obscureText: widget.obscure,
+                autofocus: true,
+                maxLines: widget.maxLines,
+                minLines: widget.minLines,
+                keyboardType: widget.keyboardType,
+                controller: _inputController,
+                focusNode: _focusNode,
+                textInputAction: TextInputAction.done,
+                onEditingComplete: _validateInput,
+                decoration: InputDecoration(
+                  labelText: widget.label,
+                  hintText: widget.value,
+                  errorText: _validInput ? null : widget.errorText,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         actions: <Widget>[
           FlatButton(

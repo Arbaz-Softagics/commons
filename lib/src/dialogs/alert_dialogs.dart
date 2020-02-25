@@ -51,6 +51,7 @@ class __AlertDialog extends StatefulWidget {
 
 class __AlertDialogState extends State<__AlertDialog> {
   bool _confirmDeleteAction = false;
+  double _screenWidth;
 
   final successIcon = Icon(
     Icons.check,
@@ -98,6 +99,7 @@ class __AlertDialogState extends State<__AlertDialog> {
 
   @override
   Widget build(BuildContext context) {
+    _screenWidth = MediaQuery.of(context).size.width;
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
@@ -121,15 +123,13 @@ class __AlertDialogState extends State<__AlertDialog> {
   }
 
   _getPositiveButtonColor() {
-    var color = Colors.black;
+    var color = Theme.of(context).textTheme.button.color;
     if (widget.confirm) {
       if (_confirmDeleteAction) {
         color = Colors.red;
       } else {
         color = Colors.grey;
       }
-    } else {
-      color = Colors.black;
     }
     return color;
   }
@@ -189,6 +189,7 @@ class __AlertDialogState extends State<__AlertDialog> {
     return Stack(
       children: <Widget>[
         Container(
+          width: _screenWidth >= 600 ? 500 : _screenWidth,
           padding: EdgeInsets.only(
             top: 45.0 + 16.0,
             bottom: 16.0,
@@ -197,7 +198,7 @@ class __AlertDialogState extends State<__AlertDialog> {
           ),
           margin: EdgeInsets.only(top: 55.0),
           decoration: new BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).dialogBackgroundColor,
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(16.0),
             boxShadow: [
@@ -511,7 +512,7 @@ waitDialog(BuildContext context,
       borderRadius: BorderRadius.circular(16.0),
     ),
     elevation: 0.0,
-    backgroundColor: Colors.white,
+    backgroundColor: Theme.of(context).dialogBackgroundColor,
     child: Padding(
       padding: EdgeInsets.all(8),
       child: Row(
