@@ -1,3 +1,15 @@
+## [0.6.8] - Bug fixed
+
+* Bugs fixes (Single input dialog)
+
+## [0.6.7] - Bug fixed
+
+* Bugs fixes (Single input dialog)
+
+## [0.6.6] - Bug fixed
+
+* Bugs fixes (Single input dialog)
+
 ## [0.6.5] - Minor Changes
 
 * Minor Changes

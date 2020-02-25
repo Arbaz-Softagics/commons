@@ -192,6 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   title: "Input Dialog",
                   label: "Name",
+                  value: singleInput,
                   errorText: "Required!",
                   validator: (value) {
                     print("Validator: $value");

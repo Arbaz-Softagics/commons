@@ -1,3 +1,4 @@
+import 'package:commons/src/functions/functions.dart';
 import 'package:flutter/material.dart';
 
 /// Private __SingleInputDialog class
@@ -42,8 +43,9 @@ class __SingleInputDialog extends StatefulWidget {
 
 class __SingleInputDialogState extends State<__SingleInputDialog> {
   final _inputController = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
   bool _validInput = true;
-
+  
   _validateInput() {
     if (widget.validator != null) {
       setState(() {
@@ -64,9 +66,11 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
   @override
   void initState() {
     super.initState();
-    if (widget.value != null && widget.value.trim().isNotEmpty) {
-      _inputController.text = widget.value.trim();
-    }
+//    if (widget.value != null && widget.value.trim().isNotEmpty) {
+//      delay(Duration(milliseconds: 300), () {
+//        _inputController.text = widget.value.trim();
+//      });
+//    }
   }
 
   @override
@@ -95,6 +99,7 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
               minLines: widget.minLines,
               keyboardType: widget.keyboardType,
               controller: _inputController,
+              focusNode: _focusNode,
               textInputAction: TextInputAction.done,
               onEditingComplete: _validateInput,
               decoration: InputDecoration(
@@ -110,10 +115,12 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
             child: Text('${widget.neutralText ?? "Close"}'),
             onPressed: () {
               Navigator.pop(context);
-              widget.neutralAction();
+              if (widget.neutralAction != null) {
+                widget.neutralAction();
+              }
             },
           ),
-          if (widget.neutralAction != null)
+          if (widget.negativeAction != null)
             FlatButton(
               child: Text(widget.negativeText),
               onPressed: () {
@@ -121,7 +128,7 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
                 widget.negativeAction();
               },
             ),
-          if (widget.neutralAction != null)
+          if (widget.positiveAction != null)
             FlatButton(
               child: Text(widget.positiveText),
               onPressed: _validateInput,
@@ -144,7 +151,7 @@ singleInputDialog(
   Function negativeAction,
   String neutralText = "Close",
   Function neutralAction,
-  TextInputType keyboardType,
+  TextInputType keyboardType = TextInputType.text,
   bool autoClose = true,
   bool obscure = false,
   int minLines,
