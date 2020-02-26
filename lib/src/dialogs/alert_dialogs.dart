@@ -123,7 +123,7 @@ class __AlertDialogState extends State<__AlertDialog> {
   }
 
   _getPositiveButtonColor() {
-    var color = Theme.of(context).textTheme.button.color;
+    var color = Theme.of(context).accentColor;
     if (widget.confirm) {
       if (_confirmDeleteAction) {
         color = Colors.red;
@@ -156,7 +156,10 @@ class __AlertDialogState extends State<__AlertDialog> {
           Navigator.of(context).pop(); // To close the dialog
           widget.negativeAction();
         },
-        child: Text(widget.negativeText),
+        child: Text(
+          widget.negativeText,
+          style: TextStyle(color: Theme.of(context).accentColor),
+        ),
       );
     }
     return SizedBox();
@@ -212,13 +215,14 @@ class __AlertDialogState extends State<__AlertDialog> {
           child: Column(
             mainAxisSize: MainAxisSize.min, // To make the card compact
             children: <Widget>[
-              Text(
-                widget.title,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w700,
+              if (widget.title.isNotEmpty)
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
               SizedBox(height: 16.0),
               Flexible(
                 fit: FlexFit.loose,
@@ -263,7 +267,11 @@ class __AlertDialogState extends State<__AlertDialog> {
                                   .pop(); // To close the dialog
                               widget.neutralAction();
                             },
-                            child: Text(widget.neutralText),
+                            child: Text(
+                              widget.neutralText,
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
+                            ),
                           )
                         : SizedBox(),
                   ],

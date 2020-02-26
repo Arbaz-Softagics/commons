@@ -1,3 +1,7 @@
+## [0.7.0] - Alert dialog button color
+
+* Alert dialog button color changed to accent color
+
 ## [0.6.9] - Theme Support Available
 
 * Theme support added
