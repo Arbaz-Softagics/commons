@@ -107,16 +107,16 @@ Widget highlightTitleTextWidget(
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle =
-        TextStyle(color: Theme.of(context).textTheme.title.color, fontSize: 16);
+    stringStyle = Theme.of(context).textTheme.title;
   }
 
   if (wordStyle == null) {
-    wordStyle = TextStyle(
-        color: Theme.of(context).accentColor,
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic);
+    wordStyle = stringStyle.copyWith(
+      color: Theme.of(context).accentColor,
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+      decoration: TextDecoration.underline,
+    );
   }
 
   if (word == null || word.isEmpty) {
@@ -145,16 +145,16 @@ Widget highlightSubTitleTextWidget(
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle = TextStyle(
-        color: Theme.of(context).textTheme.subtitle.color, fontSize: 16);
+    stringStyle = Theme.of(context).textTheme.subtitle;
   }
 
   if (wordStyle == null) {
-    wordStyle = TextStyle(
-        color: Theme.of(context).accentColor,
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic);
+    wordStyle = stringStyle.copyWith(
+      color: Theme.of(context).accentColor,
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+      decoration: TextDecoration.underline,
+    );
   }
 
   if (word == null || word.isEmpty) {

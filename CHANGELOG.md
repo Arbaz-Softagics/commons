@@ -1,3 +1,7 @@
+## [0.7.1] - Theme support
+
+* Add theme support to `highlightTitleText`, `highlightSubTitleText` functions
+
 ## [0.7.0] - Alert dialog button color
 
 * Alert dialog button color changed to accent color
