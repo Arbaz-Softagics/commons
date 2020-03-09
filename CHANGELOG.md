@@ -1,3 +1,12 @@
+## [0.7.3] - Navigator Extension Functions (Bug Fixes)
+
+* Navigator extension functions added for push, pop, replace, mustPop
+* Bug fixes
+
+## [0.7.2] - Navigator Extension Functions
+
+* Navigator extension functions added for push, pop, replace
+
 ## [0.7.1] - Theme support
 
 * Add theme support to `highlightTitleText`, `highlightSubTitleText` functions

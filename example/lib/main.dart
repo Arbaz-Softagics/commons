@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         elevation: 1,
                         child: ListTile(
                           onTap: () {
-                            pop(context);
+                            popThis();
                             print("$item at index $index");
                           },
                           title: highlightTitleTextWidget(
