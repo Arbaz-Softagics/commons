@@ -1,3 +1,10 @@
+## [0.7.4] - SingleInput Dialog Breaking Changes
+
+* Breaking changes to single input dialog
+* remove `errorText` parameter
+* parameter `validator` function return string error message instead of bool
+* see [example/lib/main.dart](https://github.com/Arbaz-Softagics/commons/blob/master/example/lib/main.dart) for details
+
 ## [0.7.3] - Navigator Extension Functions (Bug Fixes)
 
 * Navigator extension functions added for push, pop, replace, mustPop

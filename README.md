@@ -3,6 +3,7 @@
 Commons Flutter package can used for Flutter **Android** and **IOS** applications.
  
 [https://pub.dev/packages/commons](https://pub.dev/packages/commons)
+[example/lib/main.dart](https://github.com/Arbaz-Softagics/commons/blob/master/example/lib/main.dart)
  
  **Includes**
  - Alert dialog
@@ -31,7 +32,7 @@ Commons Flutter package can used for Flutter **Android** and **IOS** application
 Add this to your package's `pubspec.yaml` file:
 ```yaml
 dependencies:  
-  commons: ^0.7.3
+  commons: ^0.7.4
 ```
 
 ### 2. Install it
@@ -111,10 +112,9 @@ singleInputDialog(
     context,
     title: "Input Dialog",
     label: "Name",
-    errorText: "Required!",
     validator: (value) {
       print("Validator: $value");
-      return value.isNotEmpty;
+      return value.isEmpty ? "Required!" : null;
     },
     positiveAction: (value) {
       print("Submit: $value");

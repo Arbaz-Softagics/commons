@@ -5,7 +5,6 @@ class __SingleInputDialog extends StatefulWidget {
   final String title;
   final String label;
   final String value;
-  final String errorText;
   final String positiveText;
   final String negativeText;
   final String neutralText;
@@ -32,7 +31,6 @@ class __SingleInputDialog extends StatefulWidget {
     this.obscure = false,
     this.minLines,
     this.maxLines,
-    this.errorText,
     this.validator,
   });
 
@@ -43,18 +41,18 @@ class __SingleInputDialog extends StatefulWidget {
 class __SingleInputDialogState extends State<__SingleInputDialog> {
   final _inputController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
-  bool _validInput = true;
+  String _isValid;
 
   _validateInput() {
     if (widget.validator != null) {
       setState(() {
-        _validInput = widget.validator(_inputController.text.trim());
+        _isValid = widget.validator(_inputController.text.trim());
       });
-      if (_validInput) {
+      if (_isValid == null) {
         widget.positiveAction(_inputController.text.trim());
         Navigator.pop(context);
       }
-    } else if (_validInput && widget.positiveAction != null) {
+    } else if (_isValid == null && widget.positiveAction != null) {
       widget.positiveAction(_inputController.text.trim());
       Navigator.pop(context);
     } else {
@@ -105,7 +103,7 @@ class __SingleInputDialogState extends State<__SingleInputDialog> {
                 decoration: InputDecoration(
                   labelText: widget.label,
                   hintText: widget.value,
-                  errorText: _validInput ? null : widget.errorText,
+                  errorText: _isValid,
                 ),
               ),
             ],
@@ -157,8 +155,7 @@ singleInputDialog(
   bool obscure = false,
   int minLines,
   int maxLines,
-  String errorText = "Invalid input!",
-  bool Function(String) validator,
+  String Function(String) validator,
 }) {
   return showDialog(
     context: context,
@@ -177,7 +174,6 @@ singleInputDialog(
       obscure: obscure,
       minLines: minLines,
       maxLines: maxLines,
-      errorText: errorText,
       validator: validator,
     ),
   );

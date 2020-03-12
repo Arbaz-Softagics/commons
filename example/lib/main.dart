@@ -231,10 +231,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: "Input Dialog",
                   label: "Name",
                   value: singleInput,
-                  errorText: "Required!",
                   validator: (value) {
                     print("Validator: $value");
-                    return value.isNotEmpty;
+                    return value.isEmpty ? "Required!" : null;
                   },
                   positiveAction: (value) {
                     print("Submit: $value");
