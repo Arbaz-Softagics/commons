@@ -1,3 +1,7 @@
+## 0.7.5
+
+* Prepare for 1.0.0 version of sensors and package_info. ([dart_lsc](http://github.com/amirh/dart_lsc))
+
 ## [0.7.4] - SingleInput Dialog Breaking Changes
 
 * Breaking changes to single input dialog
