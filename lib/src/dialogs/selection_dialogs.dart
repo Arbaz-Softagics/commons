@@ -48,7 +48,7 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
                 _selectedItems.remove(data);
               }
             },
-            title: highlightTitleTextWidget(
+            title: highlightSubTitleTextWidget(
                 context, "${data.title}", _searchQuery),
           )
         : ListTile(
@@ -56,7 +56,7 @@ class ___SelectionDialogState extends State<__SelectionDialog> {
               pop(context);
               widget.onSubmit(data);
             },
-            title: highlightTitleTextWidget(
+            title: highlightSubTitleTextWidget(
                 context, "${data.title}", _searchQuery),
           );
   }

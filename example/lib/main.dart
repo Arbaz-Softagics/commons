@@ -202,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               onTap: () {
                 confirmationDialog(context, "Confirm demo dialog",
-                    positiveText: "Delete", positiveAction: () {});
+                    positiveText: "Delete", positiveAction: () {}, confirmationText: "Check this");
               },
               title: Text("Confirm Dialog"),
             ),

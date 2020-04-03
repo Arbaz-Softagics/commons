@@ -1,4 +1,9 @@
-## 0.7.5
+## [0.7.6]
+
+* parameter `confirmationText` added to dialog for custom checkbox text
+* minor bug fixes
+
+## [0.7.5]
 
 * Prepare for 1.0.0 version of sensors and package_info. ([dart_lsc](http://github.com/amirh/dart_lsc))
 

@@ -20,7 +20,7 @@ class __AlertDialog extends StatefulWidget {
   static const INFO = Color(0xff3c3f41);
 
   final Color color;
-  final String title, message, positiveText, negativeText, neutralText;
+  final String title, message, positiveText, negativeText, neutralText, confirmationText;
   final Function positiveAction, negativeAction, neutralAction;
   final bool showNeutralButton;
   final AlertDialogIcon alertDialogIcon;
@@ -43,6 +43,7 @@ class __AlertDialog extends StatefulWidget {
     this.customIcon,
     this.confirm,
     this.textAlign,
+    this.confirmationText,
   });
 
   @override
@@ -250,7 +251,7 @@ class __AlertDialogState extends State<__AlertDialog> {
                         });
                       },
                     ),
-                    Text("Check this box for confirmation!"),
+                    Text(widget.confirmationText ?? "Check this box for confirmation!"),
                   ],
                 ),
               Align(
@@ -314,6 +315,7 @@ dialog(
   confirm = false,
   textAlign: TextAlign.center,
   Widget customIcon,
+  String confirmationText,
 }) {
   return showDialog(
     barrierDismissible: closeOnBackPress,
@@ -335,6 +337,7 @@ dialog(
         confirm: confirm,
         textAlign: textAlign,
         customIcon: customIcon,
+        confirmationText: confirmationText,
       ),
     ),
   );
@@ -492,6 +495,7 @@ confirmationDialog(
   icon = AlertDialogIcon.HELP_ICON,
   confirm: true,
   textAlign: TextAlign.center,
+  confirmationText: "Check this box for confirmation!",
 }) {
   return dialog(
     context,
@@ -509,6 +513,7 @@ confirmationDialog(
     icon: icon,
     confirm: confirm,
     textAlign: textAlign,
+    confirmationText: confirmationText,
   );
 }
 
