@@ -104,10 +104,18 @@ Widget highlightTitleTextWidget(
   String string,
   String word, {
   TextStyle stringStyle,
+  bool boldTitle = true,
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle = Theme.of(context).textTheme.title;
+    if (boldTitle) {
+      stringStyle = Theme.of(context)
+          .textTheme
+          .subhead
+          .copyWith(fontWeight: FontWeight.bold);
+    } else {
+      stringStyle = Theme.of(context).textTheme.subhead;
+    }
   }
 
   if (wordStyle == null) {
@@ -145,7 +153,10 @@ Widget highlightSubTitleTextWidget(
   TextStyle wordStyle,
 }) {
   if (stringStyle == null) {
-    stringStyle = Theme.of(context).textTheme.subtitle;
+    stringStyle = Theme.of(context)
+        .textTheme
+        .body1
+        .copyWith(color: Theme.of(context).textTheme.caption.color);
   }
 
   if (wordStyle == null) {

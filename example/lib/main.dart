@@ -202,7 +202,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               onTap: () {
                 confirmationDialog(context, "Confirm demo dialog",
-                    positiveText: "Delete", positiveAction: () {}, confirmationText: "Check this");
+                    positiveText: "Delete",
+                    positiveAction: () {},
+                    confirmationText: "Check this");
               },
               title: Text("Confirm Dialog"),
             ),
@@ -261,10 +263,15 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               onTap: () {
                 List<SimpleItem> list = List()
-                  ..add(SimpleItem(1, "First", remarks: "sub title"))
-                  ..add(SimpleItem(2, "Second", remarks: "sub title"))
-                  ..add(SimpleItem(3, "Third", remarks: "sub title"))
-                  ..add(SimpleItem(4, "Forth", remarks: "sub title"));
+                  ..add(SimpleItem(1, "One", remarks: "sub title"))
+                  ..add(SimpleItem(2, "Teo", remarks: "sub title"))
+                  ..add(SimpleItem(3, "Three", remarks: "sub title"))
+                  ..add(SimpleItem(4, "Four", remarks: "sub title"))
+                  ..add(SimpleItem(5, "Five", remarks: "sub title"))
+                  ..add(SimpleItem(6, "Six", remarks: "sub title"))
+                  ..add(SimpleItem(7, "Seven", remarks: "sub title"))
+                  ..add(SimpleItem(8, "Eight", remarks: "sub title"))
+                  ..add(SimpleItem(9, "Nine", remarks: "sub title"));
                 push(
                   context,
                   ListViewScreen(
@@ -282,6 +289,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           },
                           title: highlightTitleTextWidget(
                               context, item.title, searchValue),
+                          subtitle: highlightSubTitleTextWidget(
+                              context, item.remarks, searchValue),
                         ),
                       );
                     },

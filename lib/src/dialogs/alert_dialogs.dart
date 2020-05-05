@@ -20,7 +20,12 @@ class __AlertDialog extends StatefulWidget {
   static const INFO = Color(0xff3c3f41);
 
   final Color color;
-  final String title, message, positiveText, negativeText, neutralText, confirmationText;
+  final String title,
+      message,
+      positiveText,
+      negativeText,
+      neutralText,
+      confirmationText;
   final Function positiveAction, negativeAction, neutralAction;
   final bool showNeutralButton;
   final AlertDialogIcon alertDialogIcon;
@@ -251,7 +256,8 @@ class __AlertDialogState extends State<__AlertDialog> {
                         });
                       },
                     ),
-                    Text(widget.confirmationText ?? "Check this box for confirmation!"),
+                    Text(widget.confirmationText ??
+                        "Check this box for confirmation!"),
                   ],
                 ),
               Align(
