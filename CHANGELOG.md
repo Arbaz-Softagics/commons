@@ -1,3 +1,7 @@
+## [0.7.7+1]
+
+* Minor bug fixed at SharedPreferences remove function
+
 ## [0.7.7]
 
 * highlightTitle and SubTitle function updated (title style, subtitle style)

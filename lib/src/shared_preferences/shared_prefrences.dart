@@ -69,7 +69,7 @@ class Prefs {
 
   static Future<bool> remove(String key) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    return preferences.getBool(key) ?? Future.value(false);
+    return preferences.remove(key) ?? Future.value(false);
   }
 
   static Future<bool> clear() async {
