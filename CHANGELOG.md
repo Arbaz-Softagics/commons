@@ -1,3 +1,7 @@
+## [0.7.8+1]
+
+* Minor bugs fixed
+
 ## [0.7.8]
 
 * Upgrade to flutter stable version 1.17

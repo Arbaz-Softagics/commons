@@ -111,10 +111,10 @@ Widget highlightTitleTextWidget(
     if (boldTitle) {
       stringStyle = Theme.of(context)
           .textTheme
-          .subhead
+          .subtitle1
           .copyWith(fontWeight: FontWeight.bold);
     } else {
-      stringStyle = Theme.of(context).textTheme.subhead;
+      stringStyle = Theme.of(context).textTheme.subtitle1;
     }
   }
 
@@ -155,7 +155,7 @@ Widget highlightSubTitleTextWidget(
   if (stringStyle == null) {
     stringStyle = Theme.of(context)
         .textTheme
-        .body1
+        .bodyText2
         .copyWith(color: Theme.of(context).textTheme.caption.color);
   }
 
