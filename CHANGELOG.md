@@ -1,3 +1,9 @@
+## [0.7.8]
+
+* Upgrade to flutter stable version 1.17
+* `Navigator(context).pop()' function issues fixed
+* Minor bug fixed at Single/Multi selection dialog
+
 ## [0.7.7+1]
 
 * Minor bug fixed at SharedPreferences remove function

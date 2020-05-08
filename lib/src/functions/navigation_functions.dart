@@ -21,14 +21,14 @@ Future<T> replaceWith<T extends Object>(BuildContext context, Widget route) {
 }
 
 /// Navigator pop function
-bool pop<T extends Object>(BuildContext context, [T result]) {
+pop<T extends Object>(BuildContext context, [T result]) {
   var canPop = _canPop(context);
   assert(canPop, "Cannot pop initial route.");
-  return Navigator.of(context).pop<T>(result);
+  Navigator.of(context).pop<T>(result);
 }
 
-bool mustPop<T extends Object>(BuildContext context, [T result]) {
-  return Navigator.of(context).pop<T>(result);
+mustPop<T extends Object>(BuildContext context, [T result]) {
+  Navigator.of(context).pop<T>(result);
 }
 
 _canPop(BuildContext context) {
@@ -45,17 +45,16 @@ extension NavigatorExtension on State {
     return replaceWith(context, route);
   }
 
-  bool popThis<T extends Object>([T result]) {
-    return pop(context, result);
+  popThis<T extends Object>([T result]) {
+    pop(context, result);
   }
 
-  bool mustPopThis<T extends Object>([T result]) {
-    return mustPop(context, result);
+  mustPopThis<T extends Object>([T result]) {
+    mustPop(context, result);
   }
 
   Future<T> popAndPushThis<T extends Object>(Widget route) {
-    var ok = pop(context);
-    assert(ok, "Cannot pop initial route.");
+    pop(context);
     return push(context, route);
   }
 }
