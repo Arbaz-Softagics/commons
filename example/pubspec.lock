@@ -49,7 +49,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.7.8+2"
+    version: "0.7.8+3"
   convert:
     dependency: transitive
     description:
@@ -91,7 +91,7 @@ packages:
       name: device_info
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1+4"
+    version: "0.4.2+4"
   flutter:
     dependency: "direct main"
     description: flutter

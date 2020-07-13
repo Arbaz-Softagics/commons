@@ -1,3 +1,7 @@
+## [0.7.8+3]
+
+* Minor bugs fixed
+
 ## [0.7.8+2]
 
 * Minor bugs fixed
