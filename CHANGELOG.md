@@ -1,3 +1,7 @@
+## [0.7.8+4]
+
+* Upgrade of the `intl` dependency from `0.16.1` to `0.17.0`
+
 ## [0.7.8+3]
 
 * Minor bugs fixed
